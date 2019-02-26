@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Mystorage</title>
+        <link rel="stylesheet" href="css/landing.css">
+        <link rel="stylesheet" href="css/spaces.css">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400" rel="stylesheet">
+    </head>
+    <body>
+        <div class="app">
+
+            <div data-role="page">
+                <div data-role="main" class="ui-content landing">
+                    <div class="decorTop">
+                        <img src="img/landing/top2.png" alt="">
+                    </div>
+
+                    <img src="img/landing/home-icon.png">
+                    <p>MyStorage</p>
+                    <small>Version 1.0.0</small>
+                    <a href="#spaces"><button class="access">GET ACCESS</button></a>
+                    <button class="about">About Us</button>
+
+                    <div class="decorBottom">
+                        <img src="img/landing/bot2.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="page" id="spaces">
+                <div data-role="header" class="spaces-header" data-position="fixed">
+                    <!-- <img src="img/spaces/home-icon3.png" alt=""> -->
+                    <svg width="40" height="40">
+                        <image xlink:href="img/spaces/home-icon2.svg" src="yourfallback.png"/>
+                    </svg>
+                    <div>
+                        <p>MyStorage</p>
+                        <img src="img/spaces/search-icon2.png" alt="">
+                    </div>
+                </div>
+                <div data-role="main" class="ui-content spaces">
+                    <p>All storage spaces</p>
+                    <div>
+                        <div class="eachSpace">
+                            <svg width="35" height="35">
+                                <image xlink:href="img/spaces/space-icon2.svg" src="yourfallback.png"/>
+                            </svg>
+                            <div>
+                                <div>
+                                    <p>Home</p>
+                                    <p>Dimension: <span>100 m2</span></p>
+                                </div>
+                                <p>20$</p>
+                            </div>
+                        </div>
+                        <div class="eachSpace">
+                            <svg width="35" height="35">
+                                <image xlink:href="img/spaces/space-icon2.svg" src="yourfallback.png"/>
+                            </svg>
+                            <div>
+                                <div>
+                                    <p>Home</p>
+                                    <p>Dimension: <span>100 m2</span></p>
+                                </div>
+                                <p>20$</p>
+                            </div>
+                        </div>
+                        <div class="eachSpace">
+                            <svg width="35" height="35">
+                                <image xlink:href="img/spaces/space-icon2.svg" src="yourfallback.png"/>
+                            </svg>
+                            <div>
+                                <div>
+                                    <p>Home</p>
+                                    <p>Dimension: <span>100 m2</span></p>
+                                </div>
+                                <p>20$</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div data-role="footer" data-position="fixed" class="spaces-footer">
+                    <button>ADD NEW STORAGE</button>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
