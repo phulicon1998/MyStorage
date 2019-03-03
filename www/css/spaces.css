@@ -1,10 +1,3 @@
-/* [data-role=footer]{
-    bottom: 0;
-    position: absolute !important;
-    top: auto !important;
-    width: 100%;
-} */
-
 /* HEADER */
 
 .spaces-header {
@@ -12,20 +5,12 @@
     height: 60px;
     align-items: center;
     background-color: white !important;
-    /* background-color: #3e3e3e !important; */
     border: none !important;
     border-bottom: 1px solid #e9e9e9 !important;
 }
 
-/* .spaces-header > img {
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
-} */
 
 .spaces-header > svg {
-    /* width: 40px;
-    height: 40px; */
     margin-left: 10px;
 }
 
@@ -40,7 +25,6 @@
     margin: 0;
     margin-left: 10px;
     color: #7d7d7d;
-    /* color: #ededed; */
     font-family: Roboto Mono;
     text-shadow: none !important;
 }
@@ -72,8 +56,6 @@
 }
 
 .eachSpace > svg {
-    /* width: 35px;
-    height: 35px; */
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -120,6 +102,16 @@
     border-top: 1px solid #e9e9e9 !important;
 }
 
+.spaces-footer a {
+    background-color: white !important;
+    border: none !important;
+    text-shadow: none !important;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .spaces-footer button {
     width: 182px !important;
     height: 40px;
@@ -127,8 +119,8 @@
     background-color: #7FD7E3 !important;
     border: 1px solid #7FD7E3 !important;
     margin: auto;
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
     font-family: Montserrat !important;
     font-size: 11px !important;
     font-weight: normal !important;

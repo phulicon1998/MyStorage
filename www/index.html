@@ -8,6 +8,8 @@
         <title>Mystorage</title>
         <link rel="stylesheet" href="css/landing.css">
         <link rel="stylesheet" href="css/spaces.css">
+        <link rel="stylesheet" href="css/addSpace.css">
+        <link rel="stylesheet" href="css/addFeature.css">
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -38,7 +40,6 @@
 
             <div data-role="page" id="spaces">
                 <div data-role="header" class="spaces-header" data-position="fixed">
-                    <!-- <img src="img/spaces/home-icon3.png" alt=""> -->
                     <svg width="40" height="40">
                         <image xlink:href="img/spaces/home-icon2.svg" src="yourfallback.png"/>
                     </svg>
@@ -50,49 +51,115 @@
                 <div data-role="main" class="ui-content spaces">
                     <p>All storage spaces</p>
                     <div>
-                        <div class="eachSpace">
-                            <svg width="35" height="35">
-                                <image xlink:href="img/spaces/space-icon2.svg" src="yourfallback.png"/>
-                            </svg>
-                            <div>
-                                <div>
-                                    <p>Home</p>
-                                    <p>Dimension: <span>100 m2</span></p>
-                                </div>
-                                <p>20$</p>
-                            </div>
-                        </div>
-                        <div class="eachSpace">
-                            <svg width="35" height="35">
-                                <image xlink:href="img/spaces/space-icon2.svg" src="yourfallback.png"/>
-                            </svg>
-                            <div>
-                                <div>
-                                    <p>Home</p>
-                                    <p>Dimension: <span>100 m2</span></p>
-                                </div>
-                                <p>20$</p>
-                            </div>
-                        </div>
-                        <div class="eachSpace">
-                            <svg width="35" height="35">
-                                <image xlink:href="img/spaces/space-icon2.svg" src="yourfallback.png"/>
-                            </svg>
-                            <div>
-                                <div>
-                                    <p>Home</p>
-                                    <p>Dimension: <span>100 m2</span></p>
-                                </div>
-                                <p>20$</p>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
                 <div data-role="footer" data-position="fixed" class="spaces-footer">
-                    <button>ADD NEW STORAGE</button>
+                    <a href="#addSp"><button>ADD NEW STORAGE</button></a>
                 </div>
             </div>
+
+            <div data-role="page" id="addSp">
+                <div data-role="header" class="addSp-header">
+                    <p>Space Information</p>
+                    <!-- <p class="cancelBtn">Cancel</p> -->
+                    <svg width="40" height="40" class="cancelBtn">
+                        <image xlink:href="img/addSpace/back-icon.svg" src="yourfallback.png"/>
+                    </svg>
+                </div>
+                <div data-role="main" class="ui-content addSp">
+                    <p>Enter Spaces Information</p>
+                    <div>
+                        <form>
+                            <div>
+                                <label for="storageType">Storage Type</label>
+                                <input type="text" id="storageType" name="storageType" placeholder="Enter here" data-role="none">
+                            </div>
+                            <div>
+                                <label for="dimension">Dimesion (m2)</label>
+                                <input type="number" id="dimension" name="dimension" placeholder="Enter here" data-role="none">
+                            </div>
+                            <div>
+                                <label for="rentPrice">Monthly Rent Price ($)</label>
+                                <input type="number" id="rentPrice" name="rentPrice" placeholder="Enter here" data-role="none">
+                            </div>
+                            <div>
+                                <label for="reporter">Reporter</label>
+                                <input type="text" id="reporter" name="reporter" placeholder="Enter here" data-role="none">
+                            </div>
+                            <div>
+                                <label for="note">Note</label>
+                                <textarea name="reporter" id="note" rows="2" data-role="none" placeholder="Write something here..."></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div data-role="footer" class="addSp-footer" data-position="fixed">
+                    <button data-shadow="none" class="clear">
+                        <svg width="24" height="24">
+                            <image xlink:href="img/addSpace/erase-icon.svg"/>
+                        </svg>
+                        Clear
+                    </button>
+                    <button data-shadow="none" class="contBtn">
+                        <svg width="24" height="24">
+                            <image xlink:href="img/addSpace/cont-icon.svg"/>
+                        </svg>
+                        Continue
+                    </button>
+                </div>
+            </div>
+
+            <div data-role="page" id="addFe">
+                <div data-role="header" class="addFe-header">
+                    <a href="#addSp" data-role="none" data-enhance="false">
+                        <svg width="27" height="27">
+                            <image xlink:href="img/addFeature/back-icon.svg"/>
+                        </svg>
+                    </a>
+                    <div>
+                        <p>Select features</p>
+                        <p>Confirm</p>
+                    </div>
+                </div>
+                <div data-role="main" class="ui-content addFe">
+                    <p>Feature lists</p>
+                    <div>
+                        <form>
+                            <div>
+                                <div class="feature">
+                                    <label for="shareType">Sharing space</label>
+                                    <small>Sharing space with other products</small>
+                                </div>
+                                <select name="shareType" id="spaceType" data-role="flipswitch" data-mini="true">
+                                    <option value="true"></option>
+                                    <option value="false"></option>
+                                </select>
+                            </div>
+                            <div>
+                                <div class="feature">
+                                    <label for="privateType">Private space</label>
+                                    <small>Space only for one type of product</small>
+                                </div>
+                                <select name="privateType" id="spaceType" data-role="flipswitch" data-mini="true">
+                                    <option value="true"></option>
+                                    <option value="false"></option>
+                                </select>
+                            </div>
+                            <div>
+                                <div class="feature">
+                                    <label for="cctv">CCTV</label>
+                                    <small>The storage space is surveilled</small>
+                                </div>
+                                <select name="cctv" id="spaceType" data-role="flipswitch" data-mini="true">
+                                    <option value="true"></option>
+                                    <option value="false"></option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <script type="text/javascript" src="cordova.js"></script>
@@ -100,5 +167,10 @@
         <script type="text/javascript">
             app.initialize();
         </script>
+        <script src="js/utils.js"></script>
+        <script src="js/seed.js"></script>
+        <script src="js/spaces.js"></script>
+        <script type="text/javascript" src="js/prcSpace.js"></script>
+        <script src="js/addSpace.js"></script>
     </body>
 </html>
