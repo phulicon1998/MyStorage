@@ -88,7 +88,7 @@
                             </div>
                             <div>
                                 <label for="note">Note</label>
-                                <textarea name="reporter" id="note" rows="2" data-role="none" placeholder="Write something here..."></textarea>
+                                <textarea name="note" id="note" rows="2" data-role="none" placeholder="Write something here..."></textarea>
                             </div>
                         </form>
                     </div>
@@ -130,9 +130,9 @@
                                     <label for="shareType">Sharing space</label>
                                     <small>Sharing space with other products</small>
                                 </div>
-                                <select name="shareType" id="spaceType" data-role="flipswitch" data-mini="true">
-                                    <option value="true"></option>
+                                <select name="shareType" id="shareType" data-role="flipswitch" data-mini="true">
                                     <option value="false"></option>
+                                    <option value="true"></option>
                                 </select>
                             </div>
                             <div>
@@ -140,9 +140,9 @@
                                     <label for="privateType">Private space</label>
                                     <small>Space only for one type of product</small>
                                 </div>
-                                <select name="privateType" id="spaceType" data-role="flipswitch" data-mini="true">
-                                    <option value="true"></option>
+                                <select name="privateType" id="privateType" data-role="flipswitch" data-mini="true">
                                     <option value="false"></option>
+                                    <option value="true"></option>
                                 </select>
                             </div>
                             <div>
@@ -150,9 +150,9 @@
                                     <label for="cctv">CCTV</label>
                                     <small>The storage space is surveilled</small>
                                 </div>
-                                <select name="cctv" id="spaceType" data-role="flipswitch" data-mini="true">
-                                    <option value="true"></option>
+                                <select name="cctv" id="cctv" data-role="flipswitch" data-mini="true">
                                     <option value="false"></option>
+                                    <option value="true"></option>
                                 </select>
                             </div>
                         </form>
@@ -163,14 +163,12 @@
         </div>
 
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-        <script src="js/utils.js"></script>
         <script src="js/seed.js"></script>
+        <script type="text/javascript" src="js/dbHandler.js"></script>
+        <script src="js/utils.js"></script>
+
         <script src="js/spaces.js"></script>
-        <script type="text/javascript" src="js/prcSpace.js"></script>
         <script src="js/addSpace.js"></script>
+        <script src="js/addFeature.js"></script>
     </body>
 </html>

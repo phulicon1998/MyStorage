@@ -1,16 +1,32 @@
-$(document).on("pageinit", "#addSp", () => {
-    $("#addSp input").on("tap", (e) => {
-        if($(`#addSp input[name=${e.target.name}]`).val() === "")
-            $(`label[for=${e.target.name}]`).addClass("focusInput");
-    })
+$(document).on("pageinit", "#addSp", ready);
 
-    $("#addSp input").on("focusout", (e) => {
-        if($(`#addSp input[name=${e.target.name}]`).val() === "")
-            $(`label[for=${e.target.name}]`).removeClass("focusInput");
-    })
+function ready() {
+    $("#addSp input").on("tap", addFocusInput);
+    $("#addSp input").on("focusout", removeFocusInput);
 
-    $(".cancelBtn").on("tap", function(){
-        $.mobile.navigate("#spaces");
-    })
+    $(".contBtn").on("tap", saveSpaceInfo);
+    $(".cancelBtn").on("tap", cancelForm);
+}
 
-})
+// DATA FUNCTION
+function saveSpaceInfo() {
+    let textInfo = extractFormData("#addSp input");
+    let note = extractFormData("#addSp textarea");
+    createdSpace = {...textInfo, ...note};
+    $.mobile.navigate("#addFe");
+}
+
+function cancelForm(){
+    $.mobile.navigate("#spaces");
+}
+
+// RENDER FUNCTION
+function addFocusInput(e) {
+    if($(`#addSp input[name=${e.target.name}]`).val() === "")
+    $(`label[for=${e.target.name}]`).addClass("focusInput");
+}
+
+function removeFocusInput(e) {
+    if($(`#addSp input[name=${e.target.name}]`).val() === "")
+    $(`label[for=${e.target.name}]`).removeClass("focusInput");
+}
