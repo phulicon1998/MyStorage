@@ -1,0 +1,138 @@
+.confirm-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: white !important;
+    border: none !important;
+    text-shadow: none !important;
+    border-bottom: 1px solid #e9e9e9 !important;
+    height: 60px;
+    text-transform: capitalize;
+}
+
+.confirm-header > a {
+    background-color: transparent !important;
+    border: none !important;
+    width: unset !important;
+    position: inherit !important;
+    top: 0px !important;
+}
+
+.confirm-header > div {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.confirm-header > div > p {
+    color: #959595 !important;
+    font-family: Montserrat;
+    text-shadow: none !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    margin: 0;
+}
+
+.confirm {
+    padding-top: 0px !important;
+    border: none !important;
+}
+
+.confirm > p {
+    font-family: Montserrat;
+    font-size: 14px;
+    color: #757575;
+}
+
+.confirm .listInfo,
+.confirm .listFeature,
+.confirm .notePlot {
+    background-color: white;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 10px;
+}
+
+.confirm .listInfo > div,
+.confirm .listFeature > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 3px;
+    font-family: Montserrat;
+}
+
+.confirm .listInfo > div:last-of-type {
+    border: none;
+    padding-top: 5px;
+}
+
+.confirm .listInfo > div:last-of-type > p {
+    margin-bottom: 10px;
+}
+
+.confirm .listInfo > div > p:nth-of-type(1) {
+    color: #676767 !important;
+    font-size: 14px;
+}
+
+.confirm .listInfo > div > p:nth-of-type(2) {
+    color: #151515;
+    font-size: 14px;
+}
+
+.confirm .listFeature > div {
+    justify-content: flex-start;
+    border: none;
+    margin-top: 5px;
+    border-bottom: 1px solid #eaeaea;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.confirm .listFeature> div:last-of-type{
+    margin-bottom: 5px;
+}
+
+.confirm .listFeature > div > div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.confirm .listFeature > div > div > p {
+    margin: 0px;
+    font-size: 14px;
+    color: #151515;
+    margin-bottom: 5px;
+}
+
+.confirm .listFeature > div > div > small {
+    font-size: 11px;
+    color: gray;
+}
+
+.confirm .listFeature > p {
+    font-family: Montserrat;
+    font-size: 10px;
+    color: gray;
+    font-style: italic;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.confirm .notePlot > p {
+    font-family: Montserrat;
+    font-size: 12px;
+}
+
+.confirm .notePlot > p.empty {
+    font-style: italic;
+    color: gray;
+}

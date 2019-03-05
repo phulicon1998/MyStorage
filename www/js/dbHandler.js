@@ -1,4 +1,5 @@
 var dbHandler = {
+    tempData: {},
     db: null,
     createdDatabase: function(){
         this.db = window.openDatabase("spaces.db", "1.0", "Storage Space Database", 1000000);
@@ -6,8 +7,7 @@ var dbHandler = {
         this.db.transaction(trans => execSql(trans, query));
     }
 }
-
-window.execSql = function(transaction, query){
+function execSql(transaction, query){
     transaction.executeSql(query, [], function(tx, result) {
             console.log("success");
         },

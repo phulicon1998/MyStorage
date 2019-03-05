@@ -1,25 +1,19 @@
-var hashData = [
+var hashFeatures = [
     {
-        storageType: "Home",
-        dimension: 10,
-        rentPrice: 10,
-        reporter: "kyle",
-        note: ""
+        id: "shareType",
+        name: "Share space",
+        desc: "Sharing space with other products"
     },
     {
-        storageType: "Sport Clothes",
-        dimension: 10,
-        rentPrice: 10,
-        reporter: "kyle",
-        note: ""
+        id: "privateType",
+        name: "Private space",
+        desc: "Space only for one type of product"
     },
     {
-        storageType: "Business",
-        dimension: 10,
-        rentPrice: 10,
-        reporter: "kyle",
-        note: ""
-    }
+        id: "cctv",
+        name: "CCTV",
+        desc: "The storage space is surveilled"
+    },
 ]
 
 var createdSpace;

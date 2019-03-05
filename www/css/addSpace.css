@@ -24,9 +24,6 @@
 .addSp-header > p:nth-of-type(2) {
     font-size: 12px !important;
     color: #e25c5c !important;
-    /* color: red !important; */
-    /* font-weight: 300 !important; */
-
 }
 
 /* ADDSPACE */
@@ -46,6 +43,10 @@
     border-radius: 10px;
     padding: 10px;
     padding-top: 15px;
+}
+
+.addSp form span {
+    color: red;
 }
 
 .addSp form > div > label {
@@ -121,7 +122,6 @@
     border: none !important;
     text-shadow: none !important;
     display: flex !important;
-    /* justify-content: center; */
     justify-content: space-around;
     align-items: center;
     border-top: 1px solid #e9e9e9 !important;
@@ -154,18 +154,6 @@
 }
 
 .addSp-footer button.clear {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: Montserrat;
-    box-shadow: none !important;
-    background-color: white !important; */
     color: gray !important;
     border-right: 1px solid #eaeaea !important;
-    /* padding: 3px; */
-    /* font-weight: 300; */
-    /* margin-right: 10px !important; */
-    /* border: none !important; */
-    /* margin: 0px !important; */
 }

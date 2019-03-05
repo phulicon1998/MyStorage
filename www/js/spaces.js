@@ -2,7 +2,7 @@ $(document).on("pageinit", "#spaces", ready);
 
 function ready(){
     dbHandler.createdDatabase();
-    loadSpaces();
+    // loadSpaces();
 }
 
 function loadSpaces() {

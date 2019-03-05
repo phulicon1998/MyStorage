@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="css/spaces.css">
         <link rel="stylesheet" href="css/addSpace.css">
         <link rel="stylesheet" href="css/addFeature.css">
+        <link rel="stylesheet" href="css/confirmInfo.css">
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -61,7 +62,6 @@
             <div data-role="page" id="addSp">
                 <div data-role="header" class="addSp-header">
                     <p>Space Information</p>
-                    <!-- <p class="cancelBtn">Cancel</p> -->
                     <svg width="40" height="40" class="cancelBtn">
                         <image xlink:href="img/addSpace/back-icon.svg" src="yourfallback.png"/>
                     </svg>
@@ -71,7 +71,7 @@
                     <div>
                         <form>
                             <div>
-                                <label for="storageType">Storage Type</label>
+                                <label for="storageType">Storage Type <span>*</span></label>
                                 <input type="text" id="storageType" name="storageType" placeholder="Enter here" data-role="none">
                             </div>
                             <div>
@@ -118,7 +118,7 @@
                     </a>
                     <div>
                         <p>Select features</p>
-                        <p>Confirm</p>
+                        <p id="confirmBtn">Confirm</p>
                     </div>
                 </div>
                 <div data-role="main" class="ui-content addFe">
@@ -127,7 +127,7 @@
                         <form>
                             <div>
                                 <div class="feature">
-                                    <label for="shareType">Sharing space</label>
+                                    <label for="shareType">Share space</label>
                                     <small>Sharing space with other products</small>
                                 </div>
                                 <select name="shareType" id="shareType" data-role="flipswitch" data-mini="true">
@@ -160,14 +160,79 @@
                 </div>
             </div>
 
+            <div data-role="page" id="confirmInfo">
+                <div data-role="header" class="confirm-header">
+                    <a href="#addFe" data-role="none" data-enhance="false">
+                        <svg width="27" height="27">
+                            <image xlink:href="img/addFeature/back-icon.svg"/>
+                        </svg>
+                    </a>
+                    <div>
+                        <p>Confirm Information</p>
+                        <div>
+                            <svg width="30" height="30" id="backEditBtn">
+                                <image xlink:href="img/confirm/edit-icon.svg"/>
+                            </svg>
+                            <svg width="35" height="35" id="agreeBtn">
+                                <image xlink:href="img/confirm/done-icon.svg"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="main" class="ui-content confirm">
+                    <p>Entered space information</p>
+                    <div class="listInfo">
+                        <div>
+                            <p>Storage Type</p>
+                            <p id="storageType"></p>
+                        </div>
+                        <div>
+                            <p>Dimension (m2)</p>
+                            <p><span id="dimension"></span> m2</p>
+                        </div>
+                        <div>
+                            <p>Monthly Rent Price</p>
+                            <p><span id="rentPrice"></span> $</p>
+                        </div>
+                        <div>
+                            <p>Reporter</p>
+                            <p id="reporter"></p>
+                        </div>
+                    </div>
+                    <p>Features</p>
+                    <div class="listFeature">
+                        <div>
+                            <svg width="35" height="35">
+                                <image xlink:href="img/confirm/space-icon.svg"/>
+                            </svg>
+                            <div>
+                                <p>Private space</p>
+                                <small>Space only for one type of product</small>
+                            </div>
+                        </div>
+                        <div>
+                            <svg width="35" height="35">
+                                <image xlink:href="img/confirm/cctv-icon.svg"/>
+                            </svg>
+                            <div>
+                                <p>CCTV</p>
+                                <small>The storage space is surveilled</small>
+                            </div>
+                        </div>
+                        <p>The time will be generated after confirming information</p>
+                    </div>
+                    <p>Note</p>
+                    <div class="notePlot"></div>
+                </div>
+            </div>
+
         </div>
 
-        <script type="text/javascript" src="cordova.js"></script>
-        <script src="js/seed.js"></script>
         <script type="text/javascript" src="js/dbHandler.js"></script>
         <script src="js/utils.js"></script>
 
         <script src="js/spaces.js"></script>
+        <script src="js/confirm.js"></script>
         <script src="js/addSpace.js"></script>
         <script src="js/addFeature.js"></script>
     </body>
