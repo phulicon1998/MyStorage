@@ -11,6 +11,4 @@ function extractFormData(selector){
     }, {});
 }
 
-function isEmpty(selector){
-    return Array.from($(selector)).some(tag => $(tag).val() === "");
-}
+const isEmpty = selector => Array.from($(selector)).some(tag => $(tag).val() === "");

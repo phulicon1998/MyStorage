@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="css/addSpace.css">
         <link rel="stylesheet" href="css/addFeature.css">
         <link rel="stylesheet" href="css/confirmInfo.css">
+        <link rel="stylesheet" href="css/detail.css">
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -57,6 +58,20 @@
                 <div data-role="footer" data-position="fixed" class="spaces-footer">
                     <a href="#addSp"><button>ADD NEW STORAGE</button></a>
                 </div>
+            </div>
+
+            <div data-role="page" id="detail">
+                <div data-role="header" class="detail-header">
+                    <a href="#addFe" data-role="none" data-enhance="false">
+                        <svg width="27" height="27">
+                            <image xlink:href="img/addFeature/back-icon.svg"/>
+                        </svg>
+                    </a>
+                </div>
+                <div data-role="main" class="detail">
+
+                </div>
+                <div data-role="footer" class="detail-footer"></div>
             </div>
 
             <div data-role="page" id="addSp">
@@ -201,25 +216,7 @@
                     </div>
                     <p>Features</p>
                     <div class="listFeature">
-                        <div>
-                            <svg width="35" height="35">
-                                <image xlink:href="img/confirm/space-icon.svg"/>
-                            </svg>
-                            <div>
-                                <p>Private space</p>
-                                <small>Space only for one type of product</small>
-                            </div>
-                        </div>
-                        <div>
-                            <svg width="35" height="35">
-                                <image xlink:href="img/confirm/cctv-icon.svg"/>
-                            </svg>
-                            <div>
-                                <p>CCTV</p>
-                                <small>The storage space is surveilled</small>
-                            </div>
-                        </div>
-                        <p>The time will be generated after confirming information</p>
+
                     </div>
                     <p>Note</p>
                     <div class="notePlot"></div>

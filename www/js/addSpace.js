@@ -3,8 +3,8 @@ $(document).on("pageinit", "#addSp", ready);
 function ready() {
     $("#addSp input").on("focusin", addFocusInput);
     $("#addSp input").on("focusout", removeFocusInput);
-    $(".contBtn").on("tap", saveSpaceInfo);
-    $(".cancelBtn").on("tap", cancelForm);
+    $("#addSp .contBtn").on("tap", saveSpaceInfo);
+    $("#addSp .cancelBtn").on("tap", cancelForm);
 }
 
 // DATA FUNCTION
