@@ -1,21 +1,19 @@
-$(document).on("pageinit", dbHandler.createdDatabase);
 $(document).on("pageinit", "#spaces", ready);
 $(document).on("pageshow", "#spaces", loadSpaces);
 
 function ready(){
-    dbHandler.createdDatabase();
-
     $("#spaces .spaces > div").on("click", ".eachSpace", accessDetail);
 }
 
 function accessDetail(e) {
-    // alert("run");
-    console.log($(e.target).closest(".eachSpace").data("id"));
+    let spaceId = $(e.target).closest(".eachSpace").data("id");
+    spaceDb.detail(spaceId);
+    $.mobile.navigate("#detail");
 }
 
 function loadSpaces() {
     $("#spaces .spaces > div").empty();
-    dbHandler.viewSpace().then(result => {
+    spaceDb.view().then(result => {
         let listSpaces = Array.from(result.rows);
         listSpaces.forEach(space => {
             let item = $(

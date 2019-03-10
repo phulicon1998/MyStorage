@@ -1,0 +1,117 @@
+.addType-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: white !important;
+    border: none !important;
+    text-shadow: none !important;
+    border-bottom: 1px solid #e9e9e9 !important;
+    height: 60px;
+    text-transform: capitalize;
+}
+
+.addType-header > p {
+    color: #959595 !important;
+    font-family: Montserrat;
+    text-shadow: none !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    margin: 0;
+}
+
+.addType-header > p:nth-of-type(2) {
+    font-size: 12px !important;
+    color: #e25c5c !important;
+}
+
+/* ADDTYPE */
+.addType {
+    padding-top: 0px !important;
+    border: none !important;
+}
+
+.addType > p {
+    font-family: Montserrat;
+    font-size: 14px;
+    color: #757575;
+}
+
+.addType > div {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 15px;
+}
+
+.addType form span {
+    color: red;
+}
+
+.addType form > div > label {
+    font-family: Montserrat !important;
+    font-size: 14px !important;
+    color: #585858;
+    text-transform: capitalize;
+    transition-duration: .5s;
+}
+
+.addType form > div > label.focusInput {
+    font-size: 10px !important;
+    color: #4abccc;
+}
+
+.addType form input,
+.addType form textarea {
+    border: none;
+    border-bottom: 1px solid #ebebeb;
+    background-color: transparent;
+    padding-left: 0px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    padding-bottom: 3px;
+    font-size: 15px;
+    color: #6f6f6f;
+    font-family: Montserrat;
+    font-weight: bold;
+}
+
+.addType form textarea {
+    margin-bottom: 0px;
+}
+
+.addType form textarea::placeholder {
+    margin-bottom: 0px;
+    font-weight: 300;
+}
+
+.addType form input:focus{
+    border: none;
+    border-bottom: 2px solid #4abccc;
+    outline: none;
+}
+
+.addType form input::placeholder {
+    font-size: 14px;
+    color: #BABABA;
+    font-family: Montserrat;
+    font-weight: normal;
+}
+
+.addType form textarea {
+    display: block;
+    padding: 7px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #d7d7d7;
+}
+
+.addType form textarea::placeholder {
+    color: #BABABA;
+    font-size: 14px;
+    font-family: Montserrat;
+}

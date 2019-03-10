@@ -8,15 +8,15 @@ function ready(){
 
 // DATA FUNCTION
 function storeData(){
-    dbHandler.tempData.dateTime = new Date().toLocaleString('en-GB', {
+    dbHandler.tempSpace.dateTime = new Date().toLocaleString('en-GB', {
 	    day: 'numeric',
 	    month: 'short',
 	    year: 'numeric',
 	    hour: '2-digit',
 	    minute: '2-digit',
     }).toString();
-    dbHandler.addSpace();
-    dbHandler.tempData = {};
+    spaceDb.add();
+    dbHandler.tempSpace = {};
     $.mobile.navigate("#spaces");
 }
 
@@ -32,15 +32,15 @@ function bindData(){
 }
 
 function bindText(){
-    let listData = Object.keys(dbHandler.tempData);
+    let listData = Object.keys(dbHandler.tempSpace);
     listData.forEach(key => {
-        $(`.confirm #${key}`).text(`${dbHandler.tempData[key]}`);
+        $(`.confirm #${key}`).text(`${dbHandler.tempSpace[key]}`);
     });
 }
 
 function bindFeature(){
     $(".listFeature").empty();
-    let selectedFeat = dbHandler.tempData.feature.split(",");
+    let selectedFeat = dbHandler.tempSpace.feature.split(",");
     selectedFeat.forEach(feat => {
         let featView = $(`
             <div>
@@ -61,9 +61,9 @@ function bindFeature(){
 
 function bindNote(){
     $(".confirm .notePlot").empty();
-    if(!dbHandler.tempData.note || dbHandler.tempData.note === ""){
+    if(!dbHandler.tempSpace.note || dbHandler.tempSpace.note === ""){
         $(".confirm .notePlot").append($("<p class='empty'>There is no note here...</p>"));
     } else {
-        $(".confirm .notePlot").append($(`<p>${dbHandler.tempData.note}</p>`));
+        $(".confirm .notePlot").append($(`<p>${dbHandler.tempSpace.note}</p>`));
     }
 }

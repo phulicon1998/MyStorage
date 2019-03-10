@@ -28,7 +28,7 @@ function gatherFeatures(){
     let features = Array.from($("select"));
     let trueFeat = features.filter(feature => $(feature).val() === "true");
     let featVals = trueFeat.map(feature => $(feature).attr("id"));
-    dbHandler.tempData.feature = featVals.toString();
+    dbHandler.tempSpace.feature = featVals.toString();
 
     $.mobile.navigate("#confirmInfo");
 }

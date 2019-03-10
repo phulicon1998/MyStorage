@@ -6,23 +6,25 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
         <title>Mystorage</title>
-        <link rel="stylesheet" href="css/landing.css">
-        <link rel="stylesheet" href="css/spaces.css">
-        <link rel="stylesheet" href="css/addSpace.css">
-        <link rel="stylesheet" href="css/addFeature.css">
-        <link rel="stylesheet" href="css/confirmInfo.css">
-        <link rel="stylesheet" href="css/detail.css">
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:600" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400" rel="stylesheet">
+        <link rel="stylesheet" href="css/landing.css">
+        <link rel="stylesheet" href="css/spaces.css">
+        <link rel="stylesheet" href="css/addSpace.css">
+        <link rel="stylesheet" href="css/addFeature.css">
+        <link rel="stylesheet" href="css/confirmInfo.css">
+        <link rel="stylesheet" href="css/detail.css">
+
+        <link rel="stylesheet" href="css/stype/addType.css">
     </head>
     <body>
         <div class="app">
 
-            <div data-role="page">
+            <div data-role="page" id="landing">
                 <div data-role="main" class="ui-content landing">
                     <div class="decorTop">
                         <img src="img/landing/top2.png" alt="">
@@ -40,6 +42,7 @@
                 </div>
             </div>
 
+            <!-- SPACE PAGES -->
             <div data-role="page" id="spaces">
                 <div data-role="header" class="spaces-header" data-position="fixed">
                     <svg width="40" height="40">
@@ -47,7 +50,7 @@
                     </svg>
                     <div>
                         <p>MyStorage</p>
-                        <img src="img/spaces/search-icon2.png" alt="">
+                        <img src="" alt="">
                     </div>
                 </div>
                 <div data-role="main" class="ui-content spaces">
@@ -69,7 +72,8 @@
                     </a>
                 </div>
                 <div data-role="main" class="detail">
-
+                    <div></div>
+                    <button class="remove">Delete</button>
                 </div>
                 <div data-role="footer" class="detail-footer"></div>
             </div>
@@ -223,14 +227,66 @@
                 </div>
             </div>
 
+            <!-- STYPES PAGES -->
+            <div data-role="page" id="stypes">
+                <div data-role="header">Storage Type</div>
+                <div data-role="main" class="ui-content stypes">
+                    <div></div>
+                </div>
+            </div>
+
+            <div data-role="page" id="addType">
+                <div data-role="header" class="addType-header">
+                    <p>Add New Type</p>
+                    <svg width="40" height="40" class="cancelBtn">
+                        <image xlink:href="img/addSpace/back-icon.svg" src="yourfallback.png"/>
+                    </svg>
+                </div>
+                <div data-role="main" class="ui-content addType">
+                    <p>Enter Spaces Information</p>
+                    <div>
+                        <form>
+                            <div>
+                                <label for="name">Storage Type <span>*</span></label>
+                                <input type="text" id="name" name="name" placeholder="Enter here" data-role="none">
+                            </div>
+                            <div>
+                                <label for="desc">Description</label>
+                                <input type="text" id="desc" name="desc" placeholder="Enter here" data-role="none">
+                            </div>
+                        </form>
+                        <button id="create">Create</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SFEATURES PAGES -->
+            <div data-role="page" id="sfeatures">
+                <div data-role="header">Features</div>
+                <div data-role="main" class="ui-content sfeatures">
+                    <div></div>
+                </div>
+            </div>
+
         </div>
 
-        <script type="text/javascript" src="js/dbHandler.js"></script>
-        <script src="js/utils.js"></script>
+        <!-- DB INTERACTION -->
+        <script src="js/db/index.js"></script>
+        <script src="js/db/spaceDb.js"></script>
+        <script src="js/db/spropDb.js"></script>
+        <script src="js/db/stypeDb.js"></script>
 
+        <script src="js/utils.js"></script>
+        <script src="js/landing.js"></script>
         <script src="js/spaces.js"></script>
         <script src="js/confirm.js"></script>
         <script src="js/addSpace.js"></script>
         <script src="js/addFeature.js"></script>
+        <script src="js/detail.js"></script>
+
+        <script src="js/stype/stypes.js"></script>
+        <script src="js/stype/addType.js"></script>
+
+        <script src="js/sfeatures.js"></script>
     </body>
 </html>

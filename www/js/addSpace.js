@@ -13,7 +13,7 @@ function saveSpaceInfo() {
     if(!empty){
         let textInfo = extractFormData("#addSp input");
         let note = extractFormData("#addSp textarea");
-        dbHandler.tempData = {...textInfo, ...note};
+        dbHandler.tempSpace = {...textInfo, ...note};
         $.mobile.navigate("#addFe");
     } else {
         alert("Please enter all required information");
