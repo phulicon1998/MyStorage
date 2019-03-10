@@ -5,6 +5,9 @@ function ready(){
 }
 
 function createType(){
-    let enteredType = extractFormData("#addType input");
-    console.log(enteredType);
+    let inputData = extractFormData("#addType input");
+    let textData = extractFormData("#addType textarea");
+    dbStype.temp = {...inputData, ...textData};
+    dbStype.add();
+    $.mobile.navigate("#stypes");
 }

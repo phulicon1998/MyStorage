@@ -19,7 +19,12 @@
         <link rel="stylesheet" href="css/confirmInfo.css">
         <link rel="stylesheet" href="css/detail.css">
 
+        <!-- STYPE CSS -->
         <link rel="stylesheet" href="css/stype/addType.css">
+
+        <!-- SFEATURE CSS -->
+        <link rel="stylesheet" href="css/sfeature/addFeature.css">
+
     </head>
     <body>
         <div class="app">
@@ -252,7 +257,7 @@
                             </div>
                             <div>
                                 <label for="desc">Description</label>
-                                <input type="text" id="desc" name="desc" placeholder="Enter here" data-role="none">
+                                <textarea name="desc" id="desc" rows="2" data-role="none" placeholder="Write something here..."></textarea>
                             </div>
                         </form>
                         <button id="create">Create</button>
@@ -268,25 +273,54 @@
                 </div>
             </div>
 
+            <div data-role="page" id="addFeature">
+                <div data-role="header" class="addFeature-header">
+                    <p>Add New Feature</p>
+                    <svg width="40" height="40" class="cancelBtn">
+                        <image xlink:href="img/addSpace/back-icon.svg" src="yourfallback.png"/>
+                    </svg>
+                </div>
+                <div data-role="main" class="ui-content addFeature">
+                    <p>Enter Feature Information</p>
+                    <div>
+                        <form>
+                            <div>
+                                <label for="name">Feature Name <span>*</span></label>
+                                <input type="text" id="name" name="name" placeholder="Enter here" data-role="none">
+                            </div>
+                            <div>
+                                <label for="desc">Description</label>
+                                <textarea name="desc" id="desc" rows="2" data-role="none" placeholder="Write something here..."></textarea>
+                            </div>
+                        </form>
+                        <button id="create">Create</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- DB INTERACTION -->
-        <script src="js/db/index.js"></script>
-        <script src="js/db/spaceDb.js"></script>
-        <script src="js/db/spropDb.js"></script>
-        <script src="js/db/stypeDb.js"></script>
-
         <script src="js/utils.js"></script>
-        <script src="js/landing.js"></script>
-        <script src="js/spaces.js"></script>
-        <script src="js/confirm.js"></script>
-        <script src="js/addSpace.js"></script>
-        <script src="js/addFeature.js"></script>
-        <script src="js/detail.js"></script>
+        <script src="js/db/index.js"></script>
+        <script src="js/db/generalDb.js"></script>
+        <script src="js/db/spaceDb.js"></script>
+        <script src="js/db/stypeDb.js"></script>
+        <script src="js/db/sFeatureDb.js"></script>
 
+        <!-- SPACES -->
+        <script src="js/space/spaces.js"></script>
+        <script src="js/space/addSpace.js"></script>
+        <script src="js/space/selectFeature.js"></script>
+        <script src="js/space/confirm.js"></script>
+        <script src="js/space/detail.js"></script>
+
+        <!-- STYPES -->
         <script src="js/stype/stypes.js"></script>
         <script src="js/stype/addType.js"></script>
 
-        <script src="js/sfeatures.js"></script>
+        <!-- SFEATURES -->
+        <script src="js/sfeatures/sfeatures.js"></script>
+        <script src="js/sfeatures/addFeature.js"></script>
     </body>
 </html>
