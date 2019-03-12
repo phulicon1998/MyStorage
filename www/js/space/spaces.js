@@ -2,7 +2,6 @@ $(document).on("pageinit", "#spaces", ready);
 $(document).on("pageshow", "#spaces", loadSpaces);
 
 function ready(){
-    $('#menu').enhanceWithin().panel();
     $("#spaces .spaces > div").on("click", ".eachSpace", accessDetail);
 }
 

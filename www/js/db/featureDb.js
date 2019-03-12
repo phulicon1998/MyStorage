@@ -1,4 +1,4 @@
-class sFeatureDb extends generalDb {
+class featureDb extends generalDb {
     add(tbName){
         let query = "INSERT INTO sfeature(Name, Desc, IsDefault) VALUES (?, ?, ?)";
         return super.add(query);

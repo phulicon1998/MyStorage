@@ -27,7 +27,8 @@
         <link rel="stylesheet" href="css/type/types.css">
 
         <!-- SFEATURE CSS -->
-        <link rel="stylesheet" href="css/sfeature/addFeature.css">
+        <link rel="stylesheet" href="css/feature/addFeature.css">
+        <link rel="stylesheet" href="css/feature/features.css">
 
     </head>
     <body>
@@ -66,7 +67,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#sfeatures">
+                        <a href="#features">
                             <svg width="27" height="27">
                                 <image xlink:href="img/menu/feature-icon.svg"/>
                             </svg>
@@ -78,22 +79,22 @@
         </div>
 
         <div data-role="page" id="landing">
-                <div data-role="main" class="ui-content landing">
-                    <div class="decorTop">
-                        <img src="img/landing/top2.png" alt="">
-                    </div>
+            <div data-role="main" class="ui-content landing">
+                <div class="decorTop">
+                    <img src="img/landing/top2.png" alt="">
+                </div>
 
-                    <img src="img/landing/home-icon.png">
-                    <p>MyStorage</p>
-                    <small>Version 1.0.0</small>
-                    <a href="#spaces"><button class="access">GET ACCESS</button></a>
-                    <button class="about">About Us</button>
+                <img src="img/landing/home-icon.png">
+                <p>MyStorage</p>
+                <small>Version 1.0.0</small>
+                <a href="#spaces"><button class="access">GET ACCESS</button></a>
+                <button class="about">About Us</button>
 
-                    <div class="decorBottom">
-                        <img src="img/landing/bot2.png" alt="">
-                    </div>
+                <div class="decorBottom">
+                    <img src="img/landing/bot2.png" alt="">
                 </div>
             </div>
+        </div>
 
             <!-- SPACE PAGES -->
         <div data-role="page" id="spaces">
@@ -334,11 +335,28 @@
             </div>
         </div>
 
-        <!-- SFEATURES PAGES -->
-        <div data-role="page" id="sfeatures">
-            <div data-role="header">Features</div>
-            <div data-role="main" class="ui-content sfeatures">
-                <div></div>
+        <!-- FEATURES PAGES -->
+        <div data-role="page" id="features">
+            <div data-role="header" class="features-header">
+                <a href="#menu" data-role="none" data-enhance="false">
+                    <svg width="35" height="35" id="openMenu">
+                        <image xlink:href="img/list-icon.svg"/>
+                    </svg>
+                </a>
+                <p>Manage Features</p>
+            </div>
+            <div data-role="main" class="ui-content features">
+                <p>Default features</p>
+                <div class="defaultFeature"></div>
+                <p>Custom features</p>
+                <div class="addFeatureBtn">
+                    <svg width="35" height="35">
+                        <image xlink:href="img/type/add-icon2.svg"/>
+                    </svg>
+                    <p>Create new feature</p>
+                </div>
+                <div class="customFeature">
+                </div>
             </div>
         </div>
 
@@ -373,7 +391,7 @@
         <script src="js/db/generalDb.js"></script>
         <script src="js/db/spaceDb.js"></script>
         <script src="js/db/typeDb.js"></script>
-        <script src="js/db/sFeatureDb.js"></script>
+        <script src="js/db/featureDb.js"></script>
 
         <!-- SPACES -->
         <script src="js/space/spaces.js"></script>
@@ -383,11 +401,11 @@
         <script src="js/space/detail.js"></script>
 
         <!-- STYPES -->
-        <script src="js/stype/stypes.js"></script>
-        <script src="js/stype/addType.js"></script>
+        <script src="js/type/types.js"></script>
+        <script src="js/type/addType.js"></script>
 
         <!-- SFEATURES -->
-        <script src="js/sfeatures/sfeatures.js"></script>
-        <script src="js/sfeatures/addFeature.js"></script>
+        <script src="js/feature/features.js"></script>
+        <script src="js/feature/addFeature.js"></script>
     </body>
 </html>

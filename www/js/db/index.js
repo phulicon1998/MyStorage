@@ -64,3 +64,4 @@ class Database {
 }
 
 const db = new Database();
+$('#menu').enhanceWithin().panel();

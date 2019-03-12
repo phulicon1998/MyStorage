@@ -41,7 +41,6 @@ function appendDefaultType(type){
                     <p>${type.Name}</p>
                     <p>${type.Desc}</p>
                 </div>
-
             </div>
         </div>`
     );
@@ -68,8 +67,6 @@ function appendCustomType(type){
     row.data("id", type.Id);
     $("#types .types > .customType").prepend(row);
 }
-
-
 
 function focusType({target}){
     let each = $(target).closest(".eachType");
