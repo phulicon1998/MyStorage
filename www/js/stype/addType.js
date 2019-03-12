@@ -1,13 +1,13 @@
-$(document).on("pageinit", "#addType", ready);
+$(document).on("pageinit", "#addType", readyAddType);
 
-function ready(){
+function readyAddType(){
     $("#addType #create").on("tap", createType);
 }
 
 function createType(){
     let inputData = extractFormData("#addType input");
     let textData = extractFormData("#addType textarea");
-    dbStype.temp = {...inputData, ...textData};
-    dbStype.add();
+    dbType.temp = {...inputData, ...textData};
+    dbType.add();
     $.mobile.navigate("#stypes");
 }

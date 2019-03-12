@@ -1,4 +1,4 @@
-class stypeDb extends generalDb {
+class typeDb extends generalDb {
     add(){
         let query = "INSERT INTO stype(Name, Desc, IsDefault) VALUES (?, ?, ?)";
         return super.add(query);

@@ -10,7 +10,7 @@
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:600" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400" rel="stylesheet">
         <link rel="stylesheet" href="css/landing.css">
         <link rel="stylesheet" href="css/spaces.css">
@@ -19,17 +19,65 @@
         <link rel="stylesheet" href="css/confirmInfo.css">
         <link rel="stylesheet" href="css/detail.css">
 
+        <!-- MENU CSS -->
+        <link rel="stylesheet" href="css/menu.css">
+
         <!-- STYPE CSS -->
-        <link rel="stylesheet" href="css/stype/addType.css">
+        <link rel="stylesheet" href="css/type/addType.css">
+        <link rel="stylesheet" href="css/type/types.css">
 
         <!-- SFEATURE CSS -->
         <link rel="stylesheet" href="css/sfeature/addFeature.css">
 
     </head>
     <body>
-        <div class="app">
+        <!-- MENU CSS -->
+        <div data-role="panel" id="menu" data-position="left" data-display="overlay">
+            <div class="menu-header">
+                <svg width="40" height="40" id="openMenu">
+                    <image xlink:href="img/store-icon.svg"/>
+                </svg>
+                <div>
+                    <h4>MyStorage</h4>
+                    <small>Version 1.0.0</small>
+                </div>
+            </div>
+            <div class="menu-nav">
+                <ul>
+                    <li class="main">
+                        <div>
+                            <a href="#spaces">
+                                <svg width="25" height="25">
+                                    <image xlink:href="img/menu/space-icon.svg"/>
+                                </svg>
+                                View all spaces
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <p>Pages</p>
+                <ul>
+                    <li>
+                        <a href="#types">
+                            <svg width="27" height="27">
+                                <image xlink:href="img/menu/type-icon.svg"/>
+                            </svg>
+                            Manage storage type
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sfeatures">
+                            <svg width="27" height="27">
+                                <image xlink:href="img/menu/feature-icon.svg"/>
+                            </svg>
+                            Manage features
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-            <div data-role="page" id="landing">
+        <div data-role="page" id="landing">
                 <div data-role="main" class="ui-content landing">
                     <div class="decorTop">
                         <img src="img/landing/top2.png" alt="">
@@ -48,256 +96,275 @@
             </div>
 
             <!-- SPACE PAGES -->
-            <div data-role="page" id="spaces">
-                <div data-role="header" class="spaces-header" data-position="fixed">
-                    <svg width="40" height="40">
-                        <image xlink:href="img/spaces/home-icon2.svg" src="yourfallback.png"/>
+        <div data-role="page" id="spaces">
+            <div data-role="header" class="spaces-header" data-position="fixed">
+                <a href="#menu" data-role="none" data-enhance="false">
+                    <svg width="35" height="35" id="openMenu">
+                        <image xlink:href="img/list-icon.svg"/>
                     </svg>
-                    <div>
-                        <p>MyStorage</p>
-                        <img src="" alt="">
-                    </div>
-                </div>
-                <div data-role="main" class="ui-content spaces">
-                    <p>All storage spaces</p>
-                    <div>
-                    </div>
-                </div>
-                <div data-role="footer" data-position="fixed" class="spaces-footer">
-                    <a href="#addSp"><button>ADD NEW STORAGE</button></a>
+                </a>
+                <p>View All Storages</p>
+            </div>
+            <div data-role="main" class="ui-content spaces">
+                <p>All storage spaces</p>
+                <div>
                 </div>
             </div>
-
-            <div data-role="page" id="detail">
-                <div data-role="header" class="detail-header">
-                    <a href="#addFe" data-role="none" data-enhance="false">
-                        <svg width="27" height="27">
-                            <image xlink:href="img/addFeature/back-icon.svg"/>
-                        </svg>
-                    </a>
-                </div>
-                <div data-role="main" class="detail">
-                    <div></div>
-                    <button class="remove">Delete</button>
-                </div>
-                <div data-role="footer" class="detail-footer"></div>
+            <div data-role="footer" data-position="fixed" class="spaces-footer">
+                <a href="#addSp"><button>ADD NEW STORAGE</button></a>
             </div>
+        </div>
 
-            <div data-role="page" id="addSp">
-                <div data-role="header" class="addSp-header">
-                    <p>Space Information</p>
-                    <svg width="40" height="40" class="cancelBtn">
-                        <image xlink:href="img/addSpace/back-icon.svg" src="yourfallback.png"/>
+        <div data-role="page" id="detail">
+            <div data-role="header" class="detail-header">
+                <a href="#addFe" data-role="none" data-enhance="false">
+                    <svg width="27" height="27">
+                        <image xlink:href="img/addFeature/back-icon.svg"/>
                     </svg>
-                </div>
-                <div data-role="main" class="ui-content addSp">
-                    <p>Enter Spaces Information</p>
-                    <div>
-                        <form>
-                            <div>
-                                <label for="storageType">Storage Type <span>*</span></label>
-                                <input type="text" id="storageType" name="storageType" placeholder="Enter here" data-role="none">
-                            </div>
-                            <div>
-                                <label for="dimension">Dimesion (m2)</label>
-                                <input type="number" id="dimension" name="dimension" placeholder="Enter here" data-role="none">
-                            </div>
-                            <div>
-                                <label for="rentPrice">Monthly Rent Price ($)</label>
-                                <input type="number" id="rentPrice" name="rentPrice" placeholder="Enter here" data-role="none">
-                            </div>
-                            <div>
-                                <label for="reporter">Reporter</label>
-                                <input type="text" id="reporter" name="reporter" placeholder="Enter here" data-role="none">
-                            </div>
-                            <div>
-                                <label for="note">Note</label>
-                                <textarea name="note" id="note" rows="2" data-role="none" placeholder="Write something here..."></textarea>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div data-role="footer" class="addSp-footer" data-position="fixed">
-                    <button data-shadow="none" class="clear">
-                        <svg width="24" height="24">
-                            <image xlink:href="img/addSpace/erase-icon.svg"/>
-                        </svg>
-                        Clear
-                    </button>
-                    <button data-shadow="none" class="contBtn">
-                        <svg width="24" height="24">
-                            <image xlink:href="img/addSpace/cont-icon.svg"/>
-                        </svg>
-                        Continue
-                    </button>
+                </a>
+            </div>
+            <div data-role="main" class="detail">
+                <div></div>
+                <button class="remove">Delete</button>
+            </div>
+            <div data-role="footer" class="detail-footer"></div>
+        </div>
+
+        <div data-role="page" id="addSp">
+            <div data-role="header" class="addSp-header">
+                <p>Space Information</p>
+                <svg width="40" height="40" class="cancelBtn">
+                    <image xlink:href="img/addSpace/back-icon.svg" src="yourfallback.png"/>
+                </svg>
+            </div>
+            <div data-role="main" class="ui-content addSp">
+                <p>Enter Spaces Information</p>
+                <div>
+                    <form>
+                        <div>
+                            <label for="storageType">Storage Type <span>*</span></label>
+                            <input type="text" id="storageType" name="storageType" placeholder="Enter here" data-role="none">
+                        </div>
+                        <div>
+                            <label for="dimension">Dimesion (m2)</label>
+                            <input type="number" id="dimension" name="dimension" placeholder="Enter here" data-role="none">
+                        </div>
+                        <div>
+                            <label for="rentPrice">Monthly Rent Price ($)</label>
+                            <input type="number" id="rentPrice" name="rentPrice" placeholder="Enter here" data-role="none">
+                        </div>
+                        <div>
+                            <label for="reporter">Reporter</label>
+                            <input type="text" id="reporter" name="reporter" placeholder="Enter here" data-role="none">
+                        </div>
+                        <div>
+                            <label for="note">Note</label>
+                            <textarea name="note" id="note" rows="2" data-role="none" placeholder="Write something here..."></textarea>
+                        </div>
+                    </form>
                 </div>
             </div>
-
-            <div data-role="page" id="addFe">
-                <div data-role="header" class="addFe-header">
-                    <a href="#addSp" data-role="none" data-enhance="false">
-                        <svg width="27" height="27">
-                            <image xlink:href="img/addFeature/back-icon.svg"/>
-                        </svg>
-                    </a>
-                    <div>
-                        <p>Select features</p>
-                        <p id="confirmBtn">Confirm</p>
-                    </div>
-                </div>
-                <div data-role="main" class="ui-content addFe">
-                    <p>Feature lists</p>
-                    <div>
-                        <form>
-                            <div>
-                                <div class="feature">
-                                    <label for="shareType">Share space</label>
-                                    <small>Sharing space with other products</small>
-                                </div>
-                                <select name="shareType" id="shareType" data-role="flipswitch" data-mini="true">
-                                    <option value="false"></option>
-                                    <option value="true"></option>
-                                </select>
-                            </div>
-                            <div>
-                                <div class="feature">
-                                    <label for="privateType">Private space</label>
-                                    <small>Space only for one type of product</small>
-                                </div>
-                                <select name="privateType" id="privateType" data-role="flipswitch" data-mini="true">
-                                    <option value="false"></option>
-                                    <option value="true"></option>
-                                </select>
-                            </div>
-                            <div>
-                                <div class="feature">
-                                    <label for="cctv">CCTV</label>
-                                    <small>The storage space is surveilled</small>
-                                </div>
-                                <select name="cctv" id="cctv" data-role="flipswitch" data-mini="true">
-                                    <option value="false"></option>
-                                    <option value="true"></option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <div data-role="page" id="confirmInfo">
-                <div data-role="header" class="confirm-header">
-                    <a href="#addFe" data-role="none" data-enhance="false">
-                        <svg width="27" height="27">
-                            <image xlink:href="img/addFeature/back-icon.svg"/>
-                        </svg>
-                    </a>
-                    <div>
-                        <p>Confirm Information</p>
-                        <div>
-                            <svg width="30" height="30" id="backEditBtn">
-                                <image xlink:href="img/confirm/edit-icon.svg"/>
-                            </svg>
-                            <svg width="35" height="35" id="agreeBtn">
-                                <image xlink:href="img/confirm/done-icon.svg"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div data-role="main" class="ui-content confirm">
-                    <p>Entered space information</p>
-                    <div class="listInfo">
-                        <div>
-                            <p>Storage Type</p>
-                            <p id="storageType"></p>
-                        </div>
-                        <div>
-                            <p>Dimension (m2)</p>
-                            <p><span id="dimension"></span> m2</p>
-                        </div>
-                        <div>
-                            <p>Monthly Rent Price</p>
-                            <p><span id="rentPrice"></span> $</p>
-                        </div>
-                        <div>
-                            <p>Reporter</p>
-                            <p id="reporter"></p>
-                        </div>
-                    </div>
-                    <p>Features</p>
-                    <div class="listFeature">
-
-                    </div>
-                    <p>Note</p>
-                    <div class="notePlot"></div>
-                </div>
-            </div>
-
-            <!-- STYPES PAGES -->
-            <div data-role="page" id="stypes">
-                <div data-role="header">Storage Type</div>
-                <div data-role="main" class="ui-content stypes">
-                    <div></div>
-                </div>
-            </div>
-
-            <div data-role="page" id="addType">
-                <div data-role="header" class="addType-header">
-                    <p>Add New Type</p>
-                    <svg width="40" height="40" class="cancelBtn">
-                        <image xlink:href="img/addSpace/back-icon.svg" src="yourfallback.png"/>
+            <div data-role="footer" class="addSp-footer" data-position="fixed">
+                <button data-shadow="none" class="clear">
+                    <svg width="24" height="24">
+                        <image xlink:href="img/addSpace/erase-icon.svg"/>
                     </svg>
-                </div>
-                <div data-role="main" class="ui-content addType">
-                    <p>Enter Spaces Information</p>
-                    <div>
-                        <form>
-                            <div>
-                                <label for="name">Storage Type <span>*</span></label>
-                                <input type="text" id="name" name="name" placeholder="Enter here" data-role="none">
-                            </div>
-                            <div>
-                                <label for="desc">Description</label>
-                                <textarea name="desc" id="desc" rows="2" data-role="none" placeholder="Write something here..."></textarea>
-                            </div>
-                        </form>
-                        <button id="create">Create</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SFEATURES PAGES -->
-            <div data-role="page" id="sfeatures">
-                <div data-role="header">Features</div>
-                <div data-role="main" class="ui-content sfeatures">
-                    <div></div>
-                </div>
-            </div>
-
-            <div data-role="page" id="addFeature">
-                <div data-role="header" class="addFeature-header">
-                    <p>Add New Feature</p>
-                    <svg width="40" height="40" class="cancelBtn">
-                        <image xlink:href="img/addSpace/back-icon.svg" src="yourfallback.png"/>
+                    Clear
+                </button>
+                <button data-shadow="none" class="contBtn">
+                    <svg width="24" height="24">
+                        <image xlink:href="img/addSpace/cont-icon.svg"/>
                     </svg>
+                    Continue
+                </button>
+            </div>
+        </div>
+
+        <div data-role="page" id="addFe">
+            <div data-role="header" class="addFe-header">
+                <a href="#addSp" data-role="none" data-enhance="false">
+                    <svg width="27" height="27">
+                        <image xlink:href="img/addFeature/back-icon.svg"/>
+                    </svg>
+                </a>
+                <div>
+                    <p>Select features</p>
+                    <p id="confirmBtn">Confirm</p>
                 </div>
-                <div data-role="main" class="ui-content addFeature">
-                    <p>Enter Feature Information</p>
+            </div>
+            <div data-role="main" class="ui-content addFe">
+                <p>Feature lists</p>
+                <div>
+                    <form>
+                        <div>
+                            <div class="feature">
+                                <label for="shareType">Share space</label>
+                                <small>Sharing space with other products</small>
+                            </div>
+                            <select name="shareType" id="shareType" data-role="flipswitch" data-mini="true">
+                                <option value="false"></option>
+                                <option value="true"></option>
+                            </select>
+                        </div>
+                        <div>
+                            <div class="feature">
+                                <label for="privateType">Private space</label>
+                                <small>Space only for one type of product</small>
+                            </div>
+                            <select name="privateType" id="privateType" data-role="flipswitch" data-mini="true">
+                                <option value="false"></option>
+                                <option value="true"></option>
+                            </select>
+                        </div>
+                        <div>
+                            <div class="feature">
+                                <label for="cctv">CCTV</label>
+                                <small>The storage space is surveilled</small>
+                            </div>
+                            <select name="cctv" id="cctv" data-role="flipswitch" data-mini="true">
+                                <option value="false"></option>
+                                <option value="true"></option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div data-role="page" id="confirmInfo">
+            <div data-role="header" class="confirm-header">
+                <a href="#addFe" data-role="none" data-enhance="false">
+                    <svg width="27" height="27">
+                        <image xlink:href="img/addFeature/back-icon.svg"/>
+                    </svg>
+                </a>
+                <div>
+                    <p>Confirm Information</p>
                     <div>
-                        <form>
-                            <div>
-                                <label for="name">Feature Name <span>*</span></label>
-                                <input type="text" id="name" name="name" placeholder="Enter here" data-role="none">
-                            </div>
-                            <div>
-                                <label for="desc">Description</label>
-                                <textarea name="desc" id="desc" rows="2" data-role="none" placeholder="Write something here..."></textarea>
-                            </div>
-                        </form>
-                        <button id="create">Create</button>
+                        <svg width="30" height="30" id="backEditBtn">
+                            <image xlink:href="img/confirm/edit-icon.svg"/>
+                        </svg>
+                        <svg width="35" height="35" id="agreeBtn">
+                            <image xlink:href="img/confirm/done-icon.svg"/>
+                        </svg>
                     </div>
                 </div>
             </div>
+            <div data-role="main" class="ui-content confirm">
+                <p>Entered space information</p>
+                <div class="listInfo">
+                    <div>
+                        <p>Storage Type</p>
+                        <p id="storageType"></p>
+                    </div>
+                    <div>
+                        <p>Dimension (m2)</p>
+                        <p><span id="dimension"></span> m2</p>
+                    </div>
+                    <div>
+                        <p>Monthly Rent Price</p>
+                        <p><span id="rentPrice"></span> $</p>
+                    </div>
+                    <div>
+                        <p>Reporter</p>
+                        <p id="reporter"></p>
+                    </div>
+                </div>
+                <p>Features</p>
+                <div class="listFeature">
 
+                </div>
+                <p>Note</p>
+                <div class="notePlot"></div>
+            </div>
+        </div>
+
+        <!-- TYPE PAGES -->
+        <div data-role="page" id="types">
+            <div data-role="header" class="types-header">
+                <a href="#menu" data-role="none" data-enhance="false">
+                    <svg width="35" height="35" id="openMenu">
+                        <image xlink:href="img/list-icon.svg"/>
+                    </svg>
+                </a>
+                <p>Manage Types</p>
+            </div>
+            <div data-role="main" class="ui-content types">
+                <p>Default types</p>
+                <div class="defaultType"></div>
+                <p>Custom types</p>
+                <div class="addTypeBtn">
+                    <svg width="35" height="35">
+                        <image xlink:href="img/type/add-icon2.svg"/>
+                    </svg>
+                    <p>Create new type</p>
+                </div>
+                <div class="customType">
+                </div>
+            </div>
+        </div>
+
+        <div data-role="page" id="addType">
+            <div data-role="header" class="addType-header">
+                <a href="#types" data-role="none" data-enhance="false">
+                    <svg width="27" height="27">
+                        <image xlink:href="img/addFeature/back-icon.svg"/>
+                    </svg>
+                </a>
+                <div>
+                    <p>Add new type</p>
+                    <p id="create">Confirm</p>
+                </div>
+            </div>
+            <div data-role="main" class="ui-content addType">
+                <p>Enter Spaces Information</p>
+                <div>
+                    <form>
+                        <div>
+                            <label for="name">Storage Type <span>*</span></label>
+                            <input type="text" id="name" name="name" placeholder="Enter here" data-role="none">
+                        </div>
+                        <div>
+                            <label for="desc">Description</label>
+                            <textarea name="desc" id="desc" rows="5" data-role="none" placeholder="Write something here..."></textarea>
+                        </div>
+                    </form>
+                    <!-- <button id="create">Create</button> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- SFEATURES PAGES -->
+        <div data-role="page" id="sfeatures">
+            <div data-role="header">Features</div>
+            <div data-role="main" class="ui-content sfeatures">
+                <div></div>
+            </div>
+        </div>
+
+        <div data-role="page" id="addFeature">
+            <div data-role="header" class="addFeature-header">
+                <p>Add New Feature</p>
+                <svg width="40" height="40" class="cancelBtn">
+                    <image xlink:href="img/addSpace/back-icon.svg" src="yourfallback.png"/>
+                </svg>
+            </div>
+            <div data-role="main" class="ui-content addFeature">
+                <p>Enter Feature Information</p>
+                <div>
+                    <form>
+                        <div>
+                            <label for="name">Feature Name <span>*</span></label>
+                            <input type="text" id="name" name="name" placeholder="Enter here" data-role="none">
+                        </div>
+                        <div>
+                            <label for="desc">Description</label>
+                            <textarea name="desc" id="desc" rows="2" data-role="none" placeholder="Write something here..."></textarea>
+                        </div>
+                    </form>
+                    <button id="create">Create</button>
+                </div>
+            </div>
         </div>
 
         <!-- DB INTERACTION -->
@@ -305,7 +372,7 @@
         <script src="js/db/index.js"></script>
         <script src="js/db/generalDb.js"></script>
         <script src="js/db/spaceDb.js"></script>
-        <script src="js/db/stypeDb.js"></script>
+        <script src="js/db/typeDb.js"></script>
         <script src="js/db/sFeatureDb.js"></script>
 
         <!-- SPACES -->

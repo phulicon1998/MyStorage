@@ -1,12 +1,13 @@
-$(document).on("pageinit", "#addFeature", ready);
-function ready(){
+$(document).on("pageinit", "#addFeature", readyAddFeature);
+
+function readyAddFeature(){
     $("#addFeature #create").on("tap", createFeature);
 }
 
 function createFeature(){
     let inputData = extractFormData("#addFeature input");
     let textData = extractFormData("#addFeature textarea");
-    dbSFeature.temp = {...inputData, ...textData};
-    dbSFeature.add();
+    dbFeature.temp = {...inputData, ...textData};
+    dbFeature.add();
     $.mobile.navigate("#sfeatures");
 }

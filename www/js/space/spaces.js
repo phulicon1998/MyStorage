@@ -2,6 +2,7 @@ $(document).on("pageinit", "#spaces", ready);
 $(document).on("pageshow", "#spaces", loadSpaces);
 
 function ready(){
+    $('#menu').enhanceWithin().panel();
     $("#spaces .spaces > div").on("click", ".eachSpace", accessDetail);
 }
 
@@ -13,7 +14,8 @@ function accessDetail(e) {
 
 function loadSpaces() {
     $("#spaces .spaces > div").empty();
-    spaceDb.view().then(result => {
+    let dbSpace = new spaceDb();
+    dbSpace.viewAll().then(result => {
         let listSpaces = Array.from(result.rows);
         listSpaces.forEach(space => {
             let item = $(

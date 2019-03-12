@@ -12,18 +12,36 @@
     text-transform: capitalize;
 }
 
-.addType-header > p {
-    color: #959595 !important;
-    font-family: Montserrat;
+.addType-header > a {
+    background-color: transparent !important;
+    border: none !important;
+    width: unset !important;
+    position: inherit !important;
+    top: 0px !important;
+}
+
+.addType-header > div {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addType-header > div > p {
+    margin-left: 5px;
+    color: #696969 !important;
+    font-family: Montserrat !important;
     text-shadow: none !important;
     font-size: 15px !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
     margin: 0;
 }
 
-.addType-header > p:nth-of-type(2) {
+.addType-header > div > p:nth-of-type(2){
+    color: #4abccc !important;
+    padding: 5px;
+    font-weight: bold !important;
     font-size: 12px !important;
-    color: #e25c5c !important;
 }
 
 /* ADDTYPE */

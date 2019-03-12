@@ -1,8 +1,4 @@
 class spaceDb extends generalDb {
-    // constructor(){
-    //     this.temp = {};
-    // }
-
     add(){
         let {storageType, dimension, dateTime, feature, rentPrice, reporter, note} = this.temp;
         let values = [storageType, dimension, dateTime, feature, rentPrice, reporter, note];
