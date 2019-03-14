@@ -9,5 +9,5 @@ function createType(){
     let textData = extractFormData("#addType textarea");
     dbType.temp = {...inputData, ...textData};
     dbType.add();
-    $.mobile.navigate("#stypes");
+    $.mobile.navigate("#types");
 }

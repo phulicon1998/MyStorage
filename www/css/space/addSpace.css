@@ -1,4 +1,4 @@
-.addSp-header{
+#addSpace .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,7 +12,7 @@
     text-transform: capitalize;
 }
 
-.addSp-header > p {
+#addSpace .header > p {
     color: #959595 !important;
     font-family: Montserrat;
     text-shadow: none !important;
@@ -21,35 +21,35 @@
     margin: 0;
 }
 
-.addSp-header > p:nth-of-type(2) {
+#addSpace .header > p:nth-of-type(2) {
     font-size: 12px !important;
     color: #e25c5c !important;
 }
 
 /* ADDSPACE */
-.addSp {
+#addSpace .body {
     padding-top: 0px !important;
     border: none !important;
 }
 
-.addSp > p {
+#addSpace .body > p {
     font-family: Montserrat;
     font-size: 14px;
     color: #757575;
 }
 
-.addSp > div {
+#addSpace .body > div {
     background-color: white;
     border-radius: 10px;
     padding: 10px;
     padding-top: 15px;
 }
 
-.addSp form span {
+#addSpace .body form span {
     color: red;
 }
 
-.addSp form > div > label {
+#addSpace .body form > div > label {
     font-family: Montserrat !important;
     font-size: 14px !important;
     color: #585858;
@@ -57,13 +57,13 @@
     transition-duration: .5s;
 }
 
-.addSp form > div > label.focusInput {
-    font-size: 10px !important;
+#addSpace .body form > div > label.focusInput {
     color: #4abccc;
 }
 
-.addSp form input,
-.addSp form textarea {
+#addSpace .body form select,
+#addSpace .body form input,
+#addSpace .body form textarea {
     border: none;
     border-bottom: 1px solid #ebebeb;
     background-color: transparent;
@@ -79,29 +79,37 @@
     font-weight: bold;
 }
 
-.addSp form textarea {
+#addSpace .body form select{
+    line-height: 2;
+}
+
+#addSpace .body form select:focus{
+    outline: none;
+}
+
+#addSpace .body form textarea {
     margin-bottom: 0px;
 }
 
-.addSp form textarea::placeholder {
+#addSpace .body form textarea::placeholder {
     margin-bottom: 0px;
     font-weight: 300;
 }
 
-.addSp form input:focus{
+#addSpace .body form input:focus{
     border: none;
     border-bottom: 2px solid #4abccc;
     outline: none;
 }
 
-.addSp form input::placeholder {
+#addSpace .body form input::placeholder {
     font-size: 14px;
     color: #BABABA;
     font-family: Montserrat;
     font-weight: normal;
 }
 
-.addSp form textarea {
+#addSpace .body form textarea {
     display: block;
     padding: 7px;
     box-sizing: border-box;
@@ -110,14 +118,20 @@
     border: 1px solid #d7d7d7;
 }
 
-.addSp form textarea::placeholder {
+#addSpace .body form textarea::placeholder,
+#addSpace .body form select.unselect {
     color: #BABABA;
     font-size: 14px;
     font-family: Montserrat;
+    font-weight: 400;
+}
+
+#addSpace .body form select > option {
+    color: #6f6f6f;
 }
 
 /* ADDSPACE FOOTER */
-.addSp-footer{
+#addSpace .footer{
     background-color: white !important;
     border: none !important;
     text-shadow: none !important;
@@ -128,7 +142,7 @@
     height: 50px !important;
 }
 
-.addSp-footer button {
+#addSpace .footer button {
     display: flex !important;
     flex-basis: 50%;
     justify-content: center;
@@ -144,16 +158,16 @@
     border-radius: 0px !important;
 }
 
-.addSp-footer button svg {
+#addSpace .footer button svg {
     margin-right: 5px;
 }
 
-.addSp-footer button.contBtn {
+#addSpace .footer button.contBtn {
     color: #4abccc !important;
     font-weight: 700 !important;
 }
 
-.addSp-footer button.clear {
+#addSpace .footer button.clear {
     color: gray !important;
     border-right: 1px solid #eaeaea !important;
 }

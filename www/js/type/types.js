@@ -18,8 +18,7 @@ function prepareType(){
     $("#types .types > .defaultType").empty();
     $("#types .types > .customType").empty();
     dbType.viewAll().then(result => {
-        let types = Array.from(result.rows);
-        types.forEach(type => {
+        result.forEach(type => {
             if(!!type.IsDefault) appendDefaultType(type);
             else appendCustomType(type);
         })
@@ -86,9 +85,9 @@ function clearFocusType(){
 
 function removeType(e){
     e.stopPropagation();
-    if(confirm("Do you want to remove this data?")){
+    let each = $(e.target).parents(".eachType").hasClass("eachTypeTap");
+    if(each && confirm("Do you want to remove this data?")){
         let id = $(e.target).closest(".eachType").data("id");
-        console.log(id);
         dbType.delete(id);
         prepareType();
     }

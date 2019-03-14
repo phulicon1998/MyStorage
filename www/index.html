@@ -13,8 +13,10 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400" rel="stylesheet">
         <link rel="stylesheet" href="css/landing.css">
+
+        <!-- SPACE CSS -->
         <link rel="stylesheet" href="css/spaces.css">
-        <link rel="stylesheet" href="css/addSpace.css">
+        <link rel="stylesheet" href="css/space/addSpace.css">
         <link rel="stylesheet" href="css/addFeature.css">
         <link rel="stylesheet" href="css/confirmInfo.css">
         <link rel="stylesheet" href="css/detail.css">
@@ -33,7 +35,7 @@
     </head>
     <body>
         <!-- MENU CSS -->
-        <div data-role="panel" id="menu" data-position="left" data-display="overlay">
+        <div data-role="panel" id="menu" data-position="left" data-display="push">
             <div class="menu-header">
                 <svg width="40" height="40" id="openMenu">
                     <image xlink:href="img/store-icon.svg"/>
@@ -96,7 +98,7 @@
             </div>
         </div>
 
-            <!-- SPACE PAGES -->
+        <!-- SPACE PAGES -->
         <div data-role="page" id="spaces">
             <div data-role="header" class="spaces-header" data-position="fixed">
                 <a href="#menu" data-role="none" data-enhance="false">
@@ -112,7 +114,7 @@
                 </div>
             </div>
             <div data-role="footer" data-position="fixed" class="spaces-footer">
-                <a href="#addSp"><button>ADD NEW STORAGE</button></a>
+                <a href="#addSpace"><button>ADD NEW STORAGE</button></a>
             </div>
         </div>
 
@@ -131,31 +133,35 @@
             <div data-role="footer" class="detail-footer"></div>
         </div>
 
-        <div data-role="page" id="addSp">
-            <div data-role="header" class="addSp-header">
+        <div data-role="page" id="addSpace">
+            <div data-role="header" class="header">
                 <p>Space Information</p>
                 <svg width="40" height="40" class="cancelBtn">
                     <image xlink:href="img/addSpace/back-icon.svg" src="yourfallback.png"/>
                 </svg>
             </div>
-            <div data-role="main" class="ui-content addSp">
+            <div data-role="main" class="ui-content body">
                 <p>Enter Spaces Information</p>
                 <div>
                     <form>
                         <div>
-                            <label for="storageType">Storage Type <span>*</span></label>
-                            <input type="text" id="storageType" name="storageType" placeholder="Enter here" data-role="none">
+                            <label for="address">Storage Address <span>*</span></label>
+                            <input type="text" id="address" name="address" placeholder="Enter here" data-role="none">
                         </div>
                         <div>
-                            <label for="dimension">Dimesion (m2)</label>
+                            <label for="storageType">Storage Type <span>*</span></label>
+                            <select name="storageType" id="storageType" class="unselect" data-enhance="false" data-role="none"></select>
+                        </div>
+                        <div>
+                            <label for="dimension">Dimension (m2) <span>*</span></label>
                             <input type="number" id="dimension" name="dimension" placeholder="Enter here" data-role="none">
                         </div>
                         <div>
-                            <label for="rentPrice">Monthly Rent Price ($)</label>
+                            <label for="rentPrice">Monthly Rent Price ($) <span>*</span></label>
                             <input type="number" id="rentPrice" name="rentPrice" placeholder="Enter here" data-role="none">
                         </div>
                         <div>
-                            <label for="reporter">Reporter</label>
+                            <label for="reporter">Reporter <span>*</span></label>
                             <input type="text" id="reporter" name="reporter" placeholder="Enter here" data-role="none">
                         </div>
                         <div>
@@ -165,7 +171,7 @@
                     </form>
                 </div>
             </div>
-            <div data-role="footer" class="addSp-footer" data-position="fixed">
+            <div data-role="footer" class="footer" data-position="fixed">
                 <button data-shadow="none" class="clear">
                     <svg width="24" height="24">
                         <image xlink:href="img/addSpace/erase-icon.svg"/>
@@ -181,9 +187,9 @@
             </div>
         </div>
 
-        <div data-role="page" id="addFe">
+        <div data-role="page" id="selectFeature">
             <div data-role="header" class="addFe-header">
-                <a href="#addSp" data-role="none" data-enhance="false">
+                <a href="#addSpace" data-role="none" data-enhance="false">
                     <svg width="27" height="27">
                         <image xlink:href="img/addFeature/back-icon.svg"/>
                     </svg>
@@ -330,7 +336,6 @@
                             <textarea name="desc" id="desc" rows="5" data-role="none" placeholder="Write something here..."></textarea>
                         </div>
                     </form>
-                    <!-- <button id="create">Create</button> -->
                 </div>
             </div>
         </div>
@@ -362,10 +367,15 @@
 
         <div data-role="page" id="addFeature">
             <div data-role="header" class="addFeature-header">
-                <p>Add New Feature</p>
-                <svg width="40" height="40" class="cancelBtn">
-                    <image xlink:href="img/addSpace/back-icon.svg" src="yourfallback.png"/>
-                </svg>
+                <a href="#features" data-role="none" data-enhance="false">
+                    <svg width="27" height="27">
+                        <image xlink:href="img/addFeature/back-icon.svg"/>
+                    </svg>
+                </a>
+                <div>
+                    <p>Add new feature</p>
+                    <p id="create">Confirm</p>
+                </div>
             </div>
             <div data-role="main" class="ui-content addFeature">
                 <p>Enter Feature Information</p>
@@ -377,10 +387,9 @@
                         </div>
                         <div>
                             <label for="desc">Description</label>
-                            <textarea name="desc" id="desc" rows="2" data-role="none" placeholder="Write something here..."></textarea>
+                            <textarea name="desc" id="desc" rows="5" data-role="none" placeholder="Write something here..."></textarea>
                         </div>
                     </form>
-                    <button id="create">Create</button>
                 </div>
             </div>
         </div>
@@ -400,11 +409,11 @@
         <script src="js/space/confirm.js"></script>
         <script src="js/space/detail.js"></script>
 
-        <!-- STYPES -->
+        <!-- TYPES -->
         <script src="js/type/types.js"></script>
         <script src="js/type/addType.js"></script>
 
-        <!-- SFEATURES -->
+        <!-- FEATURES -->
         <script src="js/feature/features.js"></script>
         <script src="js/feature/addFeature.js"></script>
     </body>

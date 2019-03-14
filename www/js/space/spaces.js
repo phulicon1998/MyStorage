@@ -1,6 +1,8 @@
 $(document).on("pageinit", "#spaces", ready);
 $(document).on("pageshow", "#spaces", loadSpaces);
 
+var dbSpace;
+
 function ready(){
     $("#spaces .spaces > div").on("click", ".eachSpace", accessDetail);
 }
@@ -13,10 +15,9 @@ function accessDetail(e) {
 
 function loadSpaces() {
     $("#spaces .spaces > div").empty();
-    let dbSpace = new spaceDb();
+    dbSpace = new spaceDb();
     dbSpace.viewAll().then(result => {
-        let listSpaces = Array.from(result.rows);
-        listSpaces.forEach(space => {
+        result.forEach(space => {
             let item = $(
                 `<div class="eachSpace">
                     <svg width="35" height="35">

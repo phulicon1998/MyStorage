@@ -12,20 +12,32 @@ class Database {
     }
 
     createTable(){
-        let query = "CREATE TABLE IF NOT EXISTS space (Id integer primary key, StorageType text, Dimension integer, DateTime text, Feature text, RentPrice integer, Note text, Reporter text)";
+        let query = "CREATE TABLE IF NOT EXISTS type (Id integer primary key, Name text, Desc text, IsDefault integer)";
         this.callTrans(query);
-        query = "CREATE TABLE IF NOT EXISTS stype (Id integer primary key, Name text, Desc text, IsDefault integer)";
+        query = "CREATE TABLE IF NOT EXISTS feature (Id integer primary key, Name text, Desc text, IsDefault integer)";
         this.callTrans(query);
-        query = "CREATE TABLE IF NOT EXISTS sfeature (Id integer primary key, Name text, Desc text, IsDefault integer)";
+        query = `CREATE TABLE IF NOT EXISTS space (
+            Id INTEGER PRIMARY KEY,
+            Address TEXT,
+            storageType_id INTEGER,
+            Dimension INTEGER,
+            DateTime TEXT,
+            RentPrice INTEGER,
+            Note TEXT,
+            feature_id INTEGER,
+            Reporter TEXT,
+            FOREIGN KEY(storageType_id) REFERENCES type(Id),
+            FOREIGN KEY(feature_id) REFERENCES feature(Id)
+        )`;
         this.callTrans(query);
     }
 
     loadType(){
-        let query = "SELECT count(*) FROM stype";
+        let query = "SELECT count(*) FROM type";
         this.callReadTrans(query).then(result => {
-            let count = (Array.from(result.rows)[0])["count(*)"];
+            let count = (result[0])["count(*)"];
             if(count === 0){
-                let query = "INSERT INTO stype(Name, Desc, IsDefault) VALUES (?, ?, ?)";
+                let query = "INSERT INTO type(Name, Desc, IsDefault) VALUES (?, ?, ?)";
                 this.callTrans(query, ["Home", "Suitable for small scale home business", 1]);
                 this.callTrans(query, ["Business", "Ideal for all sizes of business", 1]);
             }
@@ -33,11 +45,11 @@ class Database {
     }
 
     loadFeature(){
-        let query = "SELECT count(*) FROM sfeature";
+        let query = "SELECT count(*) FROM feature";
         this.callReadTrans(query).then(result => {
-            let count = (Array.from(result.rows)[0])["count(*)"];
+            let count = (result[0])["count(*)"];
             if(count === 0){
-                let query = "INSERT INTO sfeature(Name, Desc, IsDefault) VALUES (?, ?, ?)";
+                let query = "INSERT INTO feature(Name, Desc, IsDefault) VALUES (?, ?, ?)";
                 this.callTrans(query, ["Share space", "Sharing space with other products", 1]);
                 this.callTrans(query, ["Private space", "Space only for one type of product", 1]);
                 this.callTrans(query, ["CCTV", "The storage space is surveilled", 1]);
@@ -56,7 +68,7 @@ class Database {
     execSql(tx, query, values){
         return new Promise((resolve, reject) => {
             tx.executeSql(query, values,
-                (tx, result) => resolve(result),
+                (tx, result) => resolve(Array.from(result.rows)),
                 (tx, error) => console.log(error.message)
             );
         });

@@ -9,5 +9,5 @@ function createFeature(){
     let textData = extractFormData("#addFeature textarea");
     dbFeature.temp = {...inputData, ...textData};
     dbFeature.add();
-    $.mobile.navigate("#sfeatures");
+    $.mobile.navigate("#features");
 }
