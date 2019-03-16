@@ -9,6 +9,11 @@ class typeDb extends generalDb {
         return super.viewAll(query);
     }
 
+    viewOne(id){
+        let query = "SELECT * FROM type WHERE Id = ?";
+        return db.callReadTrans(query, [id]);
+    }
+
     delete(id){
         let query = "DELETE FROM type WHERE Id = ?";
         return super.delete(query, id);

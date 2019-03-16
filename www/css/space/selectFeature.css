@@ -1,5 +1,5 @@
 /* HEADER */
-.addFe-header{
+#selectFeature .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,7 +13,7 @@
     text-transform: capitalize;
 }
 
-.addFe-header > a {
+#selectFeature .header > a {
     background-color: transparent !important;
     border: none !important;
     width: unset !important;
@@ -21,7 +21,7 @@
     top: 0px !important;
 }
 
-.addFe-header > div {
+#selectFeature .header > div {
     flex-basis: 100%;
     display: flex;
     justify-content: space-between;
@@ -29,7 +29,7 @@
     margin-left: 5px;
 }
 
-.addFe-header > div > p {
+#selectFeature .header > div > p {
     color: #959595 !important;
     font-family: Montserrat;
     text-shadow: none !important;
@@ -38,7 +38,7 @@
     margin: 0;
 }
 
-.addFe-header > div > p:nth-of-type(2){
+#selectFeature .header > div > p:nth-of-type(2){
     color: #4abccc !important;
     padding: 5px;
     font-size: 12px !important;
@@ -46,12 +46,12 @@
 
 /* CONTENT */
 
-.addFe {
+#selectFeature .body {
     border: none !important;
     padding-top: 0px !important;
 }
 
-.addFe > p {
+#selectFeature .body > p {
     font-family: Montserrat;
     font-size: 14px;
     color: #757575;
@@ -60,14 +60,14 @@
     margin-bottom: 10px !important;
 }
 
-.addFe > div {
+#selectFeature .body > div {
     background-color: white;
     border-radius: 10px;
     padding: 10px;
     padding-top: 10px;
 }
 
-.addFe form > div {
+#selectFeature .body form > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -77,33 +77,33 @@
     border-bottom: 1px solid #f5f5f5;
 }
 
-.addFe form > div:last-of-type {
+#selectFeature .body form > div:last-of-type {
     border-bottom: none;
     margin-bottom: 0px;
     padding-bottom: 10px;
 }
 
-.addFe .feature {
+#selectFeature .body .feature {
     display: flex;
     flex-direction: column;
     font-family: Montserrat;
     flex-basis: 70%;
 }
 
-.addFe .feature > label {
+#selectFeature .body .feature > label {
     font-size: 14px;
 }
 
-.addFe .feature > small {
+#selectFeature .body .feature > small {
     font-size: 11px;
     color: gray !important;
 }
 
-.addFe .ui-flipswitch {
+#selectFeature .body .ui-flipswitch {
     width: 3.875em !important;
 }
 
-.addFe .ui-shadow-inset {
+#selectFeature .body .ui-shadow-inset {
     box-shadow: none !important;
 }
 
@@ -112,15 +112,15 @@
     border-color: #4abccc !important;
 }
 
-.addFe .ui-flipswitch.ui-flipswitch-active {
+#selectFeature .body .ui-flipswitch.ui-flipswitch-active {
     padding-left: 2em !important;
     width: 1.875em !important;
 }
 
-.addFe .ui-flipswitch .ui-btn.ui-flipswitch-on {
+#selectFeature .body .ui-flipswitch .ui-btn.ui-flipswitch-on {
     border-radius: 20px;
 }
 
-.addFe .ui-flipswitch.ui-corner-all {
+#selectFeature .body .ui-flipswitch.ui-corner-all {
     border-radius: 20px !important;
 }

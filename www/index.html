@@ -17,18 +17,18 @@
         <!-- SPACE CSS -->
         <link rel="stylesheet" href="css/spaces.css">
         <link rel="stylesheet" href="css/space/addSpace.css">
-        <link rel="stylesheet" href="css/addFeature.css">
-        <link rel="stylesheet" href="css/confirmInfo.css">
+        <link rel="stylesheet" href="css/space/selectFeature.css">
+        <link rel="stylesheet" href="css/space/confirm.css">
         <link rel="stylesheet" href="css/detail.css">
 
         <!-- MENU CSS -->
         <link rel="stylesheet" href="css/menu.css">
 
-        <!-- STYPE CSS -->
+        <!-- TYPE CSS -->
         <link rel="stylesheet" href="css/type/addType.css">
         <link rel="stylesheet" href="css/type/types.css">
 
-        <!-- SFEATURE CSS -->
+        <!-- FEATURE CSS -->
         <link rel="stylesheet" href="css/feature/addFeature.css">
         <link rel="stylesheet" href="css/feature/features.css">
 
@@ -188,7 +188,7 @@
         </div>
 
         <div data-role="page" id="selectFeature">
-            <div data-role="header" class="addFe-header">
+            <div data-role="header" class="header">
                 <a href="#addSpace" data-role="none" data-enhance="false">
                     <svg width="27" height="27">
                         <image xlink:href="img/addFeature/back-icon.svg"/>
@@ -199,48 +199,17 @@
                     <p id="confirmBtn">Confirm</p>
                 </div>
             </div>
-            <div data-role="main" class="ui-content addFe">
+            <div data-role="main" class="ui-content body">
                 <p>Feature lists</p>
                 <div>
-                    <form>
-                        <div>
-                            <div class="feature">
-                                <label for="shareType">Share space</label>
-                                <small>Sharing space with other products</small>
-                            </div>
-                            <select name="shareType" id="shareType" data-role="flipswitch" data-mini="true">
-                                <option value="false"></option>
-                                <option value="true"></option>
-                            </select>
-                        </div>
-                        <div>
-                            <div class="feature">
-                                <label for="privateType">Private space</label>
-                                <small>Space only for one type of product</small>
-                            </div>
-                            <select name="privateType" id="privateType" data-role="flipswitch" data-mini="true">
-                                <option value="false"></option>
-                                <option value="true"></option>
-                            </select>
-                        </div>
-                        <div>
-                            <div class="feature">
-                                <label for="cctv">CCTV</label>
-                                <small>The storage space is surveilled</small>
-                            </div>
-                            <select name="cctv" id="cctv" data-role="flipswitch" data-mini="true">
-                                <option value="false"></option>
-                                <option value="true"></option>
-                            </select>
-                        </div>
-                    </form>
+                    <form></form>
                 </div>
             </div>
         </div>
 
-        <div data-role="page" id="confirmInfo">
-            <div data-role="header" class="confirm-header">
-                <a href="#addFe" data-role="none" data-enhance="false">
+        <div data-role="page" id="confirm">
+            <div data-role="header" class="header">
+                <a href="#selectFeature" data-role="none" data-enhance="false">
                     <svg width="27" height="27">
                         <image xlink:href="img/addFeature/back-icon.svg"/>
                     </svg>
@@ -257,9 +226,18 @@
                     </div>
                 </div>
             </div>
-            <div data-role="main" class="ui-content confirm">
+            <div data-role="main" class="ui-content body">
                 <p>Entered space information</p>
                 <div class="listInfo">
+                    <div>
+                        <svg width="40" height="35">
+                            <image xlink:href="img/confirm/space-icon.svg"/>
+                        </svg>
+                        <div>
+                            <small>Address</small>
+                            <p id="address">113 Le Quang Dinh</p>
+                        </div>
+                    </div>
                     <div>
                         <p>Storage Type</p>
                         <p id="storageType"></p>

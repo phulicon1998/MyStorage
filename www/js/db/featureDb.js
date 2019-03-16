@@ -1,16 +1,25 @@
 class featureDb extends generalDb {
     add(tbName){
-        let query = "INSERT INTO sfeature(Name, Desc, IsDefault) VALUES (?, ?, ?)";
+        let query = "INSERT INTO feature(Name, Desc, IsDefault) VALUES (?, ?, ?)";
         return super.add(query);
     }
 
     viewAll(){
-        let query = "SELECT * FROM sfeature";
+        let query = "SELECT * FROM feature";
         return super.viewAll(query);
     }
 
+    viewByListId(listId){
+        let promises = [];
+        for(let id of listId){
+            let query = `SELECT * FROM feature WHERE Id = ?`
+            promises.push(db.callReadTrans(query, [id]));
+        }
+        return Promise.all(promises);
+    }
+
     delete(id){
-        let query = "DELETE FROM sfeature WHERE Id = ?";
+        let query = "DELETE FROM feature WHERE Id = ?";
         return super.delete(query, id);
     }
 }

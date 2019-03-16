@@ -1,4 +1,4 @@
-.confirm-header{
+#confirm .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,7 +12,7 @@
     text-transform: capitalize;
 }
 
-.confirm-header > a {
+#confirm .header > a {
     background-color: transparent !important;
     border: none !important;
     width: unset !important;
@@ -20,7 +20,7 @@
     top: 0px !important;
 }
 
-.confirm-header > div {
+#confirm .header > div {
     flex-basis: 100%;
     display: flex;
     justify-content: space-between;
@@ -28,7 +28,7 @@
     margin-left: 5px;
 }
 
-.confirm-header > div > p {
+#confirm .header > div > p {
     color: #959595 !important;
     font-family: Montserrat;
     text-shadow: none !important;
@@ -37,29 +37,30 @@
     margin: 0;
 }
 
-.confirm {
+#confirm .body {
     padding-top: 0px !important;
     border: none !important;
 }
 
-.confirm > p {
+#confirm .body > p {
     font-family: Montserrat;
     font-size: 14px;
     color: #757575;
 }
 
-.confirm .listInfo,
-.confirm .listFeature,
-.confirm .notePlot {
+#confirm .body .listInfo,
+#confirm .body .listFeature,
+#confirm .body .notePlot {
     background-color: white;
     padding: 5px;
     padding-left: 8px;
     padding-right: 8px;
     border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
 }
 
-.confirm .listInfo > div,
-.confirm .listFeature > div {
+#confirm .body .listInfo > div,
+#confirm .body .listFeature > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,26 +69,49 @@
     font-family: Montserrat;
 }
 
-.confirm .listInfo > div:last-of-type {
+#confirm .body .listInfo > div:first-of-type{
+    justify-content: space-around;
+    flex-direction: row-reverse;
+}
+
+#confirm .body .listInfo > div:first-of-type > div {
+    flex-basis: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#confirm .body .listInfo > div:first-of-type small {
+    text-transform: uppercase;
+    font-size: 10px;
+    color: gray;
+}
+
+#confirm .body .listInfo > div:first-of-type p {
+    margin: 0;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+#confirm .body .listInfo > div:last-of-type {
     border: none;
     padding-top: 5px;
 }
 
-.confirm .listInfo > div:last-of-type > p {
+#confirm .body .listInfo > div:last-of-type > p {
     margin-bottom: 10px;
 }
 
-.confirm .listInfo > div > p:nth-of-type(1) {
+#confirm .body .listInfo > div > p:nth-of-type(1) {
     color: #676767 !important;
     font-size: 14px;
 }
 
-.confirm .listInfo > div > p:nth-of-type(2) {
+#confirm .body .listInfo > div > p:nth-of-type(2) {
     color: #151515;
     font-size: 14px;
 }
 
-.confirm .listFeature > div {
+#confirm .body .listFeature > div {
     justify-content: flex-start;
     border: none;
     margin-top: 5px;
@@ -96,29 +120,29 @@
     padding-bottom: 20px;
 }
 
-.confirm .listFeature> div:last-of-type{
+#confirm .body .listFeature> div:last-of-type{
     margin-bottom: 5px;
 }
 
-.confirm .listFeature > div > div {
+#confirm .body .listFeature > div > div {
     display: flex;
     flex-direction: column;
     margin-left: 10px;
 }
 
-.confirm .listFeature > div > div > p {
+#confirm .body .listFeature > div > div > p {
     margin: 0px;
     font-size: 14px;
     color: #151515;
     margin-bottom: 5px;
 }
 
-.confirm .listFeature > div > div > small {
+#confirm .body .listFeature > div > div > small {
     font-size: 11px;
     color: gray;
 }
 
-.confirm .listFeature > p {
+#confirm .body .listFeature > p {
     font-family: Montserrat;
     font-size: 10px;
     color: gray;
@@ -127,12 +151,12 @@
     margin-top: 15px;
 }
 
-.confirm .notePlot > p {
+#confirm .body .notePlot > p {
     font-family: Montserrat;
     font-size: 12px;
 }
 
-.confirm .notePlot > p.empty {
+#confirm .body .notePlot > p.empty {
     font-style: italic;
     color: gray;
 }

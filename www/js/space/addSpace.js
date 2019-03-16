@@ -1,90 +1,108 @@
-$(document).on("pageinit", "#addSpace", readyAddSpace);
-$(document).on("pageshow", "#addSpace", prepareAddSpace);
+(function($, doc){
 
-// PREPARE & READY
-function readyAddSpace() {
-    $("#addSpace input").on("focusin", addFocusInput);
-    $("#addSpace input").on("focusout", removeFocusInput);
+    $(doc).on("pageinit", "#addSpace", ready);
+    $(doc).on("pageshow", "#addSpace", prepare);
 
-    $("#addSpace select").on("focusin", addFocusSelect);
-    $("#addSpace select").on("focusout", removeFocusSelect);
-    $("#addSpace select").on("change", checkSelectValue);
+    // PREPARE & READY
+    function ready() {
+        $("#addSpace input").on("focusin", focusInput);
+        $("#addSpace input").on("focusout", unfocusInput);
 
+        $("#addSpace select").on("focusin", focusSelect);
+        $("#addSpace select").on("focusout", unfocusSelect);
+        $("#addSpace select").on("change", updateSelectChange);
 
-    $("#addSpace .contBtn").on("tap", saveSpaceInfo);
-    $("#addSpace .cancelBtn").on("tap", cancelForm);
-}
+        $("#addSpace .contBtn").on("tap", save);
+        $("#addSpace .cancelBtn").on("tap", cancelForm);
 
-function prepareAddSpace(){
-    if(dbSpace) return refreshForm();
-    return cancelForm();
-}
-
-// DATA FUNCTION
-function saveSpaceInfo() {
-    let empty = isEmpty("#addSpace input");
-    if(!empty){
-        dbSpace.checkDuplicateAdddress().then(result => {
-            let textData = extractFormData("#addSpace input");
-            let {storageType} = extractFormData("#addSpace select");
-            let {note} = extractFormData("#addSpace textarea");
-            if(storageType !== "0" && result.length == 0){
-                dbSpace.temp = {storageType ,...textData, note};
-                $.mobile.navigate("#selectFeature");
-            } else {
-                alert("Please enter all required information");
-            }
-        })
-    } else {
-        alert("Please enter all required information");
+        $("#addSpace .clear").on("tap", (e) => clearForm());
     }
-}
 
-function cancelForm(){
-    $.mobile.navigate("#spaces");
-}
+    function prepare(){
+        if(dbSpace) return clearForm(bindData);
+        return cancelForm();
+    }
 
-// RENDER FUNCTION
-function refreshForm(){
-    $(`label`).removeClass("focusInput");
-    $("#addSpace select[name='storageType']").empty();
-    let typeList = new typeDb().viewAll().then(result => {
-        $("select[name='storageType']").append($(`<option value="0">< Please select type ></option>`));
-        result.forEach(type => {
-            let typeRow = $(`<option value="${type.Id}">${type.Name}</option>`);
-            $("select[name='storageType']").append(typeRow);
+    // HANDLER FUNCTION
+    function save() {
+        let empty = fu.isEmpty("#addSpace input");
+        if(!empty){
+            dbSpace.checkDuplicateAdddress().then(result => {
+                let textData = fu.extract("#addSpace input");
+                let {storageType} = fu.extract("#addSpace select");
+                let {note} = fu.extract("#addSpace textarea");
+                if(storageType !== "0" && result.length == 0){
+                    let {temp} = dbSpace;
+                    dbSpace.temp = {...temp, storageType ,...textData, note};
+                    $.mobile.navigate("#selectFeature");
+                } else {
+                    alert("Please enter all required information");
+                }
+            })
+        } else {
+            alert("Please enter all required information");
+        }
+    }
+
+    function cancelForm(){
+        $.mobile.navigate("#spaces");
+        clearForm();
+    }
+
+    // RENDER FUNCTION
+    function clearForm(next = false){
+        $(`label`).removeClass("focusInput");
+        $("#addSpace select[name='storageType']").empty();
+        let typeList = new typeDb().viewAll().then(result => {
+            $("select[name='storageType']").append($(`<option value="0">< Please select type ></option>`));
+            result.forEach(type => {
+                let typeRow = $(`<option value="${type.Id}">${type.Name}</option>`);
+                $("select[name='storageType']").append(typeRow);
+            });
+            updateSelectChange();
+            fu.clear("#addSpace input", "#addSpace textarea");
+            if(next) next();
         });
-        $("select[name='storageType']").val(dbSpace.temp.storageType || "0");
-        checkSelectValue();
-    });
-}
-
-function addFocusInput(e) {
-    let tagName = $(e.target).prop("tagName").toLowerCase();
-    if($(`#addSpace ${tagName}[name=${e.target.name}]`).val() === "")
-    $(`label[for=${e.target.name}]`).addClass("focusInput");
-}
-
-function removeFocusInput(e) {
-    let tagName = $(e.target).prop("tagName").toLowerCase();
-    if($(`#addSpace ${tagName}[name=${e.target.name}]`).val() === "")
-    $(`label[for=${e.target.name}]`).removeClass("focusInput");
-}
-
-function addFocusSelect(e){
-    $(`label[for=${e.target.name}]`).addClass("focusInput");
-}
-
-function checkSelectValue(){
-    if($(`select[name='storageType']`).val() && $(`select[name='storageType']`).val() !== "0"){
-        $(`select[name='storageType']`).removeClass("unselect");
-    } else {
-        $(`select[name='storageType']`).addClass("unselect");
     }
-}
 
-function removeFocusSelect(e){
-    if($(`select[name='storageType']`).val() === "0"){
+    function bindData(){
+        if(Object.keys(dbSpace.temp).length > 0){
+            fu.bind("#addSpace select", dbSpace.temp);
+            fu.bind("#addSpace input", dbSpace.temp);
+            fu.bind("#addSpace textarea", dbSpace.temp);
+            $("label").addClass("focusInput");
+            updateSelectChange();
+        }
+    }
+
+    function focusInput(e) {
+        let tagName = $(e.target).prop("tagName").toLowerCase();
+        if($(`#addSpace ${tagName}[name=${e.target.name}]`).val() === "")
+        $(`label[for=${e.target.name}]`).addClass("focusInput");
+    }
+
+    function unfocusInput(e) {
+        let tagName = $(e.target).prop("tagName").toLowerCase();
+        if($(`#addSpace ${tagName}[name=${e.target.name}]`).val() === "")
         $(`label[for=${e.target.name}]`).removeClass("focusInput");
     }
-}
+
+    function focusSelect(e){
+        $(`label[for=${e.target.name}]`).addClass("focusInput");
+    }
+
+    function unfocusSelect(e){
+        if($(`select[name='storageType']`).val() === "0"){
+            $(`label[for=${e.target.name}]`).removeClass("focusInput");
+        }
+    }
+
+    function updateSelectChange(){
+        if($(`select[name='storageType']`).val() && $(`select[name='storageType']`).val() !== "0"){
+            $(`select[name='storageType']`).removeClass("unselect");
+        } else {
+            $(`select[name='storageType']`).addClass("unselect");
+        }
+    }
+
+}(jQuery, document));

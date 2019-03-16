@@ -76,4 +76,5 @@ class Database {
 }
 
 const db = new Database();
+const fu = new FU();
 $('#menu').enhanceWithin().panel();
