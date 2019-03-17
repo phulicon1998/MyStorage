@@ -1,13 +1,16 @@
-$(document).on("pageinit", "#addFeature", readyAddFeature);
+(function($, doc){
+    $(doc).on("pageinit", "#addFeature", ready);
 
-function readyAddFeature(){
-    $("#addFeature #create").on("tap", createFeature);
-}
+    function ready(){
+        $("#addFeature #create").on("tap", create);
+    }
 
-function createFeature(){
-    let inputData = extractFormData("#addFeature input");
-    let textData = extractFormData("#addFeature textarea");
-    dbFeature.temp = {...inputData, ...textData};
-    dbFeature.add();
-    $.mobile.navigate("#features");
-}
+    function create(){
+        let inputData = fu.extract("#addFeature input");
+        let textData = fu.extract("#addFeature textarea");
+        dbFeature.temp = {...inputData, ...textData};
+        dbFeature.add();
+        $.mobile.navigate("#features");
+    }
+
+}(jQuery, document));

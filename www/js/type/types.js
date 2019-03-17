@@ -1,7 +1,6 @@
 $(document).on("pageshow", "#types", prepareType);
 $(document).on("pageinit", "#types", readyType);
 
-var dbType;
 const rm = {
     true: "img/remove-icon4.svg",
     false: "img/remove-icon4-blur.svg"

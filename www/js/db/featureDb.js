@@ -1,6 +1,6 @@
 class featureDb extends generalDb {
     add(tbName){
-        let query = "INSERT INTO feature(Name, Desc, IsDefault) VALUES (?, ?, ?)";
+        let query = "INSERT INTO feature(FName, FDesc, IsDefault) VALUES (?, ?, ?)";
         return super.add(query);
     }
 

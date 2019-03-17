@@ -1,13 +1,15 @@
 class spaceDb extends generalDb {
     add(){
-        let {address, storageType, dimension, dateTime, feature, rentPrice, reporter, note} = this.temp;
-        let values = [address, storageType, dimension, dateTime, feature, rentPrice, reporter, note];
-        let query = "INSERT INTO space(Address, StorageType, Dimension, DateTime, Feature, RentPrice, Reporter, Note) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        return callTrans(query, values);
+        let {address, type, dimension, dateTime, rentPrice, reporter, note} = this.temp;
+        let values = [address, type, dimension, dateTime, rentPrice, reporter, note];
+        let query = "INSERT INTO space(Address, Type, Dimension, DateTime, RentPrice, Reporter, Note) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        return db.callTrans(query, values, db.execSqlReturnId);
     }
 
     viewAll(){
-        let query = "SELECT * FROM space";
+        let query = `
+        SELECT S.Id, S.Address, S.Dimension, S.RentPrice, T.TName, T.TDesc FROM space S
+        JOIN type T ON S.Type = T.Id`;
         return super.viewAll(query);
     }
 
@@ -16,10 +18,18 @@ class spaceDb extends generalDb {
         return db.callReadTrans(query, [address]);
     }
 
-    viewOne(){
-        let query = "SELECT * FROM space WHERE Id = ?";
+    viewOne(id){
+        let query = "SELECT S.*, T.TName FROM space S JOIN type T ON S.Type = T.Id WHERE S.Id = ?";
         db.callReadTrans(query, [id]).then(result => {
-            dbHandler.viewData = result[0];
+            this.temp = result[0];
+            let query = "SELECT * FROM spaceFeature SF JOIN feature F ON SF.FeatureId = F.Id WHERE spaceId = ?";
+            db.callReadTrans(query, [id]).then(result => {
+                let listFeature = result.map(feature => ({
+                    name: feature.FName,
+                    desc: feature.FDesc
+                }));
+                this.temp.feature = listFeature;
+            });
         });
     }
 }

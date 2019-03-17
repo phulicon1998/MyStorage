@@ -24,16 +24,26 @@
     }
 
     // HANDLER FUNCTION
+    function bindData(){
+        if(Object.keys(dbSpace.temp).length > 0){
+            fu.bind("#addSpace select", dbSpace.temp);
+            fu.bind("#addSpace input", dbSpace.temp);
+            fu.bind("#addSpace textarea", dbSpace.temp);
+            $("label").addClass("focusInput");
+            updateSelectChange();
+        }
+    }
+
     function save() {
         let empty = fu.isEmpty("#addSpace input");
         if(!empty){
             dbSpace.checkDuplicateAdddress().then(result => {
                 let textData = fu.extract("#addSpace input");
-                let {storageType} = fu.extract("#addSpace select");
+                let {type} = fu.extract("#addSpace select");
                 let {note} = fu.extract("#addSpace textarea");
-                if(storageType !== "0" && result.length == 0){
+                if(type !== "0" && result.length == 0){
                     let {temp} = dbSpace;
-                    dbSpace.temp = {...temp, storageType ,...textData, note};
+                    dbSpace.temp = {...temp, type ,...textData, note};
                     $.mobile.navigate("#selectFeature");
                 } else {
                     alert("Please enter all required information");
@@ -52,27 +62,17 @@
     // RENDER FUNCTION
     function clearForm(next = false){
         $(`label`).removeClass("focusInput");
-        $("#addSpace select[name='storageType']").empty();
+        $("#addSpace select[name='type']").empty();
         let typeList = new typeDb().viewAll().then(result => {
-            $("select[name='storageType']").append($(`<option value="0">< Please select type ></option>`));
+            $("select[name='type']").append($(`<option value="0">< Please select type ></option>`));
             result.forEach(type => {
-                let typeRow = $(`<option value="${type.Id}">${type.Name}</option>`);
-                $("select[name='storageType']").append(typeRow);
+                let typeRow = $(`<option value="${type.Id}">${type.TName}</option>`);
+                $("select[name='type']").append(typeRow);
             });
             updateSelectChange();
             fu.clear("#addSpace input", "#addSpace textarea");
             if(next) next();
         });
-    }
-
-    function bindData(){
-        if(Object.keys(dbSpace.temp).length > 0){
-            fu.bind("#addSpace select", dbSpace.temp);
-            fu.bind("#addSpace input", dbSpace.temp);
-            fu.bind("#addSpace textarea", dbSpace.temp);
-            $("label").addClass("focusInput");
-            updateSelectChange();
-        }
     }
 
     function focusInput(e) {
@@ -92,16 +92,16 @@
     }
 
     function unfocusSelect(e){
-        if($(`select[name='storageType']`).val() === "0"){
+        if($(`select[name='type']`).val() === "0"){
             $(`label[for=${e.target.name}]`).removeClass("focusInput");
         }
     }
 
     function updateSelectChange(){
-        if($(`select[name='storageType']`).val() && $(`select[name='storageType']`).val() !== "0"){
-            $(`select[name='storageType']`).removeClass("unselect");
+        if($(`select[name='type']`).val() && $(`select[name='type']`).val() !== "0"){
+            $(`select[name='type']`).removeClass("unselect");
         } else {
-            $(`select[name='storageType']`).addClass("unselect");
+            $(`select[name='type']`).addClass("unselect");
         }
     }
 

@@ -17,8 +17,12 @@
             hour: '2-digit',
             minute: '2-digit',
         }).toString();
-        spaceDb.add();
-        $.mobile.navigate("#spaces");
+        let {feature} = dbSpace.temp;
+        delete dbSpace.temp["feature"];
+        dbSpace.add().then(id => {
+            new space_featureDb().add(id, feature);
+            $.mobile.navigate("#spaces");
+        });
     }
 
     // RENDER FUNCTION
@@ -39,8 +43,8 @@
     function bindText(){
         let confirmView = {...dbSpace.temp};
         let listData = Object.keys(confirmView);
-        new typeDb().viewOne(dbSpace.temp.storageType).then(result => {
-            confirmView.storageType = result[0].Name;
+        new typeDb().viewOne(dbSpace.temp.type).then(result => {
+            confirmView.type = result[0].TName;
             listData.forEach(key => {
                 $(`#confirm .body #${key}`).text(`${confirmView[key]}`);
             });
@@ -58,8 +62,8 @@
                             <image xlink:href="../img/feature/feature-icon.svg"/>
                         </svg>
                         <div>
-                            <p>${feat.Name}</p>
-                            <small>${feat.Desc}</small>
+                            <p>${feat.FName}</p>
+                            <small>${feat.FDesc}</small>
                         </div>
                     </div>
                     `)
@@ -70,13 +74,13 @@
         });
     }
 
-        function bindNote(){
-            $("#confirm .body .notePlot").empty();
-            if(!dbSpace.temp.note || dbSpace.temp.note === ""){
-                $("#confirm .body .notePlot").append($("<p class='empty'>There is no note here...</p>"));
-            } else {
-                $("#confirm .body .notePlot").append($(`<p>${dbSpace.temp.note}</p>`));
-            }
+    function bindNote(){
+        $("#confirm .body .notePlot").empty();
+        if(!dbSpace.temp.note || dbSpace.temp.note === ""){
+            $("#confirm .body .notePlot").append($("<p class='empty'>There is no note here...</p>"));
+        } else {
+            $("#confirm .body .notePlot").append($(`<p>${dbSpace.temp.note}</p>`));
         }
+    }
 
 }(jQuery, document))

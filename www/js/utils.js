@@ -36,4 +36,8 @@ class FU {
         })
     }
 
+    lowerFirstLetter = word => word[0].toLowerCase() + word.substring(1);
+
+    upperFirstLetter = word => word[0].toUpperCase() + word.substring(1);
+
 }

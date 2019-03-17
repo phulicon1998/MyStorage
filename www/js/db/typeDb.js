@@ -1,6 +1,6 @@
 class typeDb extends generalDb {
     add(){
-        let query = "INSERT INTO type(Name, Desc, IsDefault) VALUES (?, ?, ?)";
+        let query = "INSERT INTO type(TName, TDesc, IsDefault) VALUES (?, ?, ?)";
         return super.add(query);
     }
 

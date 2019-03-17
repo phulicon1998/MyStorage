@@ -119,18 +119,51 @@
         </div>
 
         <div data-role="page" id="detail">
-            <div data-role="header" class="detail-header">
-                <a href="#addFe" data-role="none" data-enhance="false">
+            <div data-role="header" class="header">
+                <a href="#spaces" data-role="none" data-enhance="false">
                     <svg width="27" height="27">
                         <image xlink:href="img/addFeature/back-icon.svg"/>
                     </svg>
                 </a>
+                <div>
+                    <p>Space Information</p>
+                    <p id="btnDelete">Delete</p>
+                </div>
             </div>
-            <div data-role="main" class="detail">
-                <div></div>
-                <button class="remove">Delete</button>
+            <div data-role="main" class="ui-content body">
+                <p>Space detail information</p>
+                <div class="listInfo">
+                    <div>
+                        <svg width="40" height="35">
+                            <image xlink:href="img/confirm/space-icon.svg"/>
+                        </svg>
+                        <div>
+                            <small>Address</small>
+                            <p id="address"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Storage Type</p>
+                        <p id="tName"></p>
+                    </div>
+                    <div>
+                        <p>Dimension (m2)</p>
+                        <p><span id="dimension"></span> m2</p>
+                    </div>
+                    <div>
+                        <p>Monthly Rent Price</p>
+                        <p><span id="rentPrice"></span> $</p>
+                    </div>
+                    <div>
+                        <p>Reporter</p>
+                        <p id="reporter"></p>
+                    </div>
+                </div>
+                <p>Features</p>
+                <div class="listFeature"></div>
+                <p>Note</p>
+                <div class="notePlot"></div>
             </div>
-            <div data-role="footer" class="detail-footer"></div>
         </div>
 
         <div data-role="page" id="addSpace">
@@ -149,8 +182,8 @@
                             <input type="text" id="address" name="address" placeholder="Enter here" data-role="none">
                         </div>
                         <div>
-                            <label for="storageType">Storage Type <span>*</span></label>
-                            <select name="storageType" id="storageType" class="unselect" data-enhance="false" data-role="none"></select>
+                            <label for="type">Storage Type <span>*</span></label>
+                            <select name="type" id="type" class="unselect" data-enhance="false" data-role="none"></select>
                         </div>
                         <div>
                             <label for="dimension">Dimension (m2) <span>*</span></label>
@@ -240,7 +273,7 @@
                     </div>
                     <div>
                         <p>Storage Type</p>
-                        <p id="storageType"></p>
+                        <p id="type"></p>
                     </div>
                     <div>
                         <p>Dimension (m2)</p>
@@ -377,8 +410,12 @@
         <script src="js/db/index.js"></script>
         <script src="js/db/generalDb.js"></script>
         <script src="js/db/spaceDb.js"></script>
+        <script src="js/db/space-feature.js"></script>
         <script src="js/db/typeDb.js"></script>
         <script src="js/db/featureDb.js"></script>
+
+        <!-- GLOBAL VARIABLE -->
+        <script src="js/global.js"></script>
 
         <!-- SPACES -->
         <script src="js/space/spaces.js"></script>

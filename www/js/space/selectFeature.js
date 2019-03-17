@@ -25,14 +25,14 @@
         dbFeature.viewAll().then(result => {
             result.forEach(feature => {
                 let state = "";
-                if(feature.Name === "Share space" || feature.Name === "Private space"){
-                    state = (feature.Name.split(" ")[0]).toLowerCase();
+                if(feature.FName === "Share space" || feature.FName === "Private space"){
+                    state = (feature.FName.split(" ")[0]).toLowerCase();
                 }
                 let featureRow = $(`
                     <div>
                         <div class="feature">
-                            <label for="${state}">${feature.Name}</label>
-                            <small>${feature.Desc}</small>
+                            <label for="${state}">${feature.FName}</label>
+                            <small>${feature.FDesc}</small>
                         </div>
                         <select name="${state}" id="${state}" data-role="flipswitch" data-mini="true">
                             <option value="0"></option>
