@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="css/space/selectFeature.css">
         <link rel="stylesheet" href="css/space/confirm.css">
         <link rel="stylesheet" href="css/detail.css">
+        <link rel="stylesheet" href="css/space/search.css">
 
         <!-- MENU CSS -->
         <link rel="stylesheet" href="css/menu.css">
@@ -100,21 +101,43 @@
 
         <!-- SPACE PAGES -->
         <div data-role="page" id="spaces">
-            <div data-role="header" class="spaces-header" data-position="fixed">
+            <div data-role="header" class="header" data-position="fixed">
                 <a href="#menu" data-role="none" data-enhance="false">
                     <svg width="35" height="35" id="openMenu">
                         <image xlink:href="img/list-icon.svg"/>
                     </svg>
                 </a>
-                <p>View All Storages</p>
-            </div>
-            <div data-role="main" class="ui-content spaces">
-                <p>All storage spaces</p>
                 <div>
+                    <p>View All Storages</p>
+                    <a href="#search" data-role="none" data-enhance="false" data-transition="slide">
+                        <svg width="28" height="28" id="openMenu">
+                            <image xlink:href="img/search-icon.svg"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
-            <div data-role="footer" data-position="fixed" class="spaces-footer">
+            <div data-role="main" class="ui-content body">
+                <p>All storage spaces</p>
+                <div></div>
+            </div>
+            <div data-role="footer" data-position="fixed" class="footer">
                 <a href="#addSpace"><button>ADD NEW STORAGE</button></a>
+            </div>
+        </div>
+
+        <div data-role="page" id="search">
+            <div data-role="header" class="header" data-position="fixed">
+                <svg width="27" height="27" id="openMenu">
+                    <image xlink:href="img/search-icon.svg"/>
+                </svg>
+                <div>
+                    <input data-role="none" type="text" placeholder="Search keywords here...">
+                    <a href="#spaces" data-role="none" data-enhance="false" data-transition="slide" data-direction="reverse">Cancel</a>
+                </div>
+            </div>
+            <div data-role="main" class="ui-content body">
+                <p>Searched results</p>
+                <div></div>
             </div>
         </div>
 
@@ -122,7 +145,7 @@
             <div data-role="header" class="header">
                 <a href="#spaces" data-role="none" data-enhance="false">
                     <svg width="27" height="27">
-                        <image xlink:href="img/addFeature/back-icon.svg"/>
+                        <image xlink:href="img/back-icon.svg"/>
                     </svg>
                 </a>
                 <div>
@@ -224,7 +247,7 @@
             <div data-role="header" class="header">
                 <a href="#addSpace" data-role="none" data-enhance="false">
                     <svg width="27" height="27">
-                        <image xlink:href="img/addFeature/back-icon.svg"/>
+                        <image xlink:href="img/back-icon.svg"/>
                     </svg>
                 </a>
                 <div>
@@ -323,10 +346,10 @@
         </div>
 
         <div data-role="page" id="addType">
-            <div data-role="header" class="addType-header">
+            <div data-role="header" class="header">
                 <a href="#types" data-role="none" data-enhance="false">
                     <svg width="27" height="27">
-                        <image xlink:href="img/addFeature/back-icon.svg"/>
+                        <image xlink:href="img/back-icon.svg"/>
                     </svg>
                 </a>
                 <div>
@@ -334,7 +357,7 @@
                     <p id="create">Confirm</p>
                 </div>
             </div>
-            <div data-role="main" class="ui-content addType">
+            <div data-role="main" class="ui-content body">
                 <p>Enter Spaces Information</p>
                 <div>
                     <form>
@@ -353,7 +376,7 @@
 
         <!-- FEATURES PAGES -->
         <div data-role="page" id="features">
-            <div data-role="header" class="features-header">
+            <div data-role="header" class="header">
                 <a href="#menu" data-role="none" data-enhance="false">
                     <svg width="35" height="35" id="openMenu">
                         <image xlink:href="img/list-icon.svg"/>
@@ -361,17 +384,17 @@
                 </a>
                 <p>Manage Features</p>
             </div>
-            <div data-role="main" class="ui-content features">
+            <div data-role="main" class="ui-content body">
                 <p>Default features</p>
-                <div class="defaultFeature"></div>
+                <div class="default"></div>
                 <p>Custom features</p>
-                <div class="addFeatureBtn">
+                <div class="addBtn">
                     <svg width="35" height="35">
                         <image xlink:href="img/type/add-icon2.svg"/>
                     </svg>
                     <p>Create new feature</p>
                 </div>
-                <div class="customFeature">
+                <div class="custom">
                 </div>
             </div>
         </div>
@@ -380,7 +403,7 @@
             <div data-role="header" class="addFeature-header">
                 <a href="#features" data-role="none" data-enhance="false">
                     <svg width="27" height="27">
-                        <image xlink:href="img/addFeature/back-icon.svg"/>
+                        <image xlink:href="img/back-icon.svg"/>
                     </svg>
                 </a>
                 <div>
@@ -423,6 +446,7 @@
         <script src="js/space/selectFeature.js"></script>
         <script src="js/space/confirm.js"></script>
         <script src="js/space/detail.js"></script>
+        <script src="js/space/search.js"></script>
 
         <!-- TYPES -->
         <script src="js/type/types.js"></script>

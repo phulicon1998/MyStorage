@@ -30,11 +30,12 @@
 }
 
 #detail .header > div > p {
-    color: #959595 !important;
-    font-family: Montserrat;
+    margin-left: 5px;
+    color: #696969 !important;
+    font-family: Montserrat !important;
     text-shadow: none !important;
     font-size: 15px !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
     margin: 0;
 }
 

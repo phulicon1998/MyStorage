@@ -3,15 +3,15 @@
     $(doc).on("pageinit", "#features", ready);
 
     function ready(){
-        $("#features .features > div").on("tap", ".removeFeature", remove);
-        $("#features .features").on("tap", ".eachFeature", focus);
-        $("#features .features .addFeatureBtn").on("tap", navigateAddFeature);
+        $("#features .body > div").on("tap", ".removeFeature", remove);
+        $("#features .body").on("tap", ".each", focus);
+        $("#features .body .addBtn").on("tap", navigateAddFeature);
     }
 
     function prepare(){
         dbFeature = new featureDb();
-        $("#features .features > .defaultFeature").empty();
-        $("#features .features > .customFeature").empty();
+        $("#features .body > .default").empty();
+        $("#features .body > .custom").empty();
         dbFeature.viewAll().then(result => {
             result.forEach(feature => {
                 if(!!feature.IsDefault) appendDefault(feature);
@@ -22,7 +22,7 @@
 
     function appendDefault(feature){
         let row = $(`
-            <div class="eachFeature">
+            <div class="each">
                 <svg width="35" height="35">
                     <image xlink:href="img/feature/feature-icon.svg"/>
                 </svg>
@@ -34,12 +34,12 @@
                 </div>
             </div>`
         );
-        $("#features .features > .defaultFeature").prepend(row);
+        $("#features .body > .default").prepend(row);
     }
 
     function appendCustom(feature){
         let row = $(`
-            <div class="eachFeature">
+            <div class="each">
                 <svg width="35" height="35">
                     <image xlink:href="img/feature/feature-icon.svg"/>
                 </svg>
@@ -55,21 +55,21 @@
             </div>`
         );
         row.data("id", feature.Id);
-        $("#features .features > .customFeature").prepend(row);
+        $("#features .body > .custom").prepend(row);
     }
 
     function unFocus(){
-        $(".eachFeatureTap").removeClass("eachFeatureTap");
+        $(".eachTap").removeClass("eachTap");
         $(".textTap").removeClass("textTap");
         $(".removeFeature").attr("xlink:href", rm_ico[false]);
     }
 
     function focus({target}){
-        let each = $(target).closest(".eachFeature");
-        let state = each.hasClass("eachFeatureTap");
+        let each = $(target).closest(".each");
+        let state = each.hasClass("eachTap");
         unFocus();
         if(state) return;
-        each.toggleClass("eachFeatureTap");
+        each.toggleClass("eachTap");
         each.find("p:nth-of-type(1)").toggleClass("textTap");
         each.find(".removeFeature").attr("xlink:href", rm_ico[!state]);
     }
@@ -80,11 +80,12 @@
 
     function remove(e){
         e.stopPropagation();
-        let each = $(e.target).parents(".eachFeature").hasClass("eachFeatureTap");
+        let each = $(e.target).parents(".each").hasClass("eachTap");
         if(each && confirm("Do you want to remove this data?")){
-            let id = $(e.target).parents(".eachFeature").data("id");
+            let id = $(e.target).parents(".each").data("id");
             dbFeature.delete(id);
             prepare();
         }
     }
+
 }(jQuery, document));

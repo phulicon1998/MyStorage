@@ -1,4 +1,4 @@
-.addType-header{
+#addType .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,7 +12,7 @@
     text-transform: capitalize;
 }
 
-.addType-header > a {
+#addType .header > a {
     background-color: transparent !important;
     border: none !important;
     width: unset !important;
@@ -20,14 +20,14 @@
     top: 0px !important;
 }
 
-.addType-header > div {
+#addType .header > div {
     flex-basis: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.addType-header > div > p {
+#addType .header > div > p {
     margin-left: 5px;
     color: #696969 !important;
     font-family: Montserrat !important;
@@ -37,7 +37,7 @@
     margin: 0;
 }
 
-.addType-header > div > p:nth-of-type(2){
+#addType .header > div > p:nth-of-type(2){
     color: #4abccc !important;
     padding: 5px;
     font-weight: bold !important;
@@ -45,29 +45,29 @@
 }
 
 /* ADDTYPE */
-.addType {
+#addType .body {
     padding-top: 0px !important;
     border: none !important;
 }
 
-.addType > p {
+#addType .body > p {
     font-family: Montserrat;
     font-size: 14px;
     color: #757575;
 }
 
-.addType > div {
+#addType .body > div {
     background-color: white;
     border-radius: 10px;
     padding: 10px;
     padding-top: 15px;
 }
 
-.addType form span {
+#addType .body form span {
     color: red;
 }
 
-.addType form > div > label {
+#addType .body form > div > label {
     font-family: Montserrat !important;
     font-size: 14px !important;
     color: #585858;
@@ -75,13 +75,13 @@
     transition-duration: .5s;
 }
 
-.addType form > div > label.focusInput {
+#addType .body form > div > label.focusInput {
     font-size: 10px !important;
     color: #4abccc;
 }
 
-.addType form input,
-.addType form textarea {
+#addType .body form input,
+#addType .body form textarea {
     border: none;
     border-bottom: 1px solid #ebebeb;
     background-color: transparent;
@@ -97,29 +97,29 @@
     font-weight: bold;
 }
 
-.addType form textarea {
+#addType .body form textarea {
     margin-bottom: 0px;
 }
 
-.addType form textarea::placeholder {
+#addType .body form textarea::placeholder {
     margin-bottom: 0px;
     font-weight: 300;
 }
 
-.addType form input:focus{
+#addType .body form input:focus{
     border: none;
     border-bottom: 2px solid #4abccc;
     outline: none;
 }
 
-.addType form input::placeholder {
+#addType .body form input::placeholder {
     font-size: 14px;
     color: #BABABA;
     font-family: Montserrat;
     font-weight: normal;
 }
 
-.addType form textarea {
+#addType .body form textarea {
     display: block;
     padding: 7px;
     box-sizing: border-box;
@@ -128,7 +128,7 @@
     border: 1px solid #d7d7d7;
 }
 
-.addType form textarea::placeholder {
+#addType .body form textarea::placeholder {
     color: #BABABA;
     font-size: 14px;
     font-family: Montserrat;

@@ -4,7 +4,7 @@
 
 
     function ready(){
-        $("#spaces .spaces > div").on("click", ".eachSpace", access);
+        $("#spaces .body > div").on("click", ".eachSpace", access);
     }
 
     function access(e) {
@@ -14,7 +14,7 @@
     }
 
     function load() {
-        $("#spaces .spaces > div").empty();
+        $("#spaces .body > div").empty();
         dbSpace = new spaceDb();
         dbSpace.viewAll().then(result => {
             result.forEach(space => {
@@ -33,7 +33,7 @@
                     </div>`
                 );
                 item.data("id", space.Id);
-                $("#spaces .spaces > div").append(item);
+                $("#spaces .body > div").append(item);
             })
         });
     }

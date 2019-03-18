@@ -1,6 +1,6 @@
 /* HEADER */
 
-.spaces-header {
+#spaces .header {
     display: flex;
     height: 60px;
     align-items: center;
@@ -9,7 +9,7 @@
     border-bottom: 1px solid #e9e9e9 !important;
 }
 
-.spaces-header > a {
+#spaces .header > a {
     background-color: transparent !important;
     border: none !important;
     width: unset !important;
@@ -17,14 +17,22 @@
     top: 0px !important;
 }
 
-.spaces-header > a > svg {
+#spaces .header > a > svg {
     padding: 13px;
     padding-bottom: 0px;
     padding-top: 0px;
     border-right: 1px solid #e4e4e4;
 }
 
-.spaces-header > p {
+#spaces .header > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-basis: 100%;
+    padding-right: 10px;
+}
+
+#spaces .header > div > p {
     margin: 0;
     margin-left: 10px;
     color: #696969;
@@ -33,19 +41,23 @@
     text-shadow: none !important;
 }
 
+#spaces .header > div > a{
+    height: 28px;
+}
+
 /* CONTENT */
 
-.spaces {
+#spaces .body {
     padding-top: 0px !important;
 }
 
-.spaces > p {
+#spaces .body > p {
     font-family: Montserrat;
     font-size: 14px;
     color: #757575;
 }
 
-.spaces .eachSpace {
+#spaces .body .eachSpace {
     background-color: white;
     height: 60px;
     border-radius: 10px;
@@ -55,12 +67,12 @@
     margin-bottom: 10px;
 }
 
-.eachSpace > svg {
+#spaces .body .eachSpace > svg {
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.eachSpace > div {
+#spaces .body .eachSpace > div {
     flex-basis: 100%;
     display: flex;
     justify-content: space-between;
@@ -68,32 +80,32 @@
     align-items: center;
 }
 
-.eachSpace > div > p {
+#spaces .body .eachSpace > div > p {
     font-size: 14px;
     text-align: right;
     color: #5B5B5B;
     margin-right: 10px;
 }
 
-.eachSpace > div > div > p:nth-of-type(1){
+#spaces .body .eachSpace > div > div > p:nth-of-type(1){
     color: #000000;
     font-size: 14px;
     margin: 0;
     margin-bottom: 3px;
 }
 
-.eachSpace > div > div > p:nth-of-type(2){
+#spaces .body .eachSpace > div > div > p:nth-of-type(2){
     font-size: 11px;
     margin: 0;
     color: #6F6E6E;
 }
 
-.eachSpace span {
+#spaces .body .eachSpace span {
     color: #000000;
 }
 
 /* FOOTER */
-.spaces-footer{
+#spaces .footer{
     background-color: white !important;
     border: none !important;
     text-shadow: none !important;
@@ -102,7 +114,7 @@
     border-top: 1px solid #e9e9e9 !important;
 }
 
-.spaces-footer a {
+#spaces .footer a {
     background-color: white !important;
     border: none !important;
     text-shadow: none !important;
@@ -112,7 +124,7 @@
     margin-bottom: 10px;
 }
 
-.spaces-footer button {
+#spaces .footer button {
     width: 182px !important;
     height: 40px;
     color: white !important;
