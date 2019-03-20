@@ -39,10 +39,30 @@
     margin: 0;
 }
 
-#detail .header > div > p:nth-of-type(2){
+/* #detail .header > div > p:nth-of-type(2){
     color: #4abccc !important;
     padding: 5px;
     font-size: 12px !important;
+} */
+
+#detail .header > div >div {
+    display: flex;
+    align-items: center;
+    font-family: Montserrat;
+}
+
+#detail .header > div > div > p:nth-of-type(2){
+    color: #f2960f !important;
+}
+
+#detail .header > div > div > p:nth-of-type(1){
+    color: #00bcd4 !important;
+}
+
+#detail .header >div > div p {
+    padding: 5px !important;
+    font-size: 12px !important;
+    font-weight: 500;
 }
 
 /* BODY */

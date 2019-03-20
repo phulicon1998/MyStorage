@@ -127,17 +127,18 @@
 
         <div data-role="page" id="search">
             <div data-role="header" class="header" data-position="fixed">
-                <svg width="27" height="27" id="openMenu">
+                <svg width="28" height="28" id="openMenu">
                     <image xlink:href="img/search-icon.svg"/>
                 </svg>
                 <div>
-                    <input data-role="none" type="text" placeholder="Search keywords here...">
-                    <a href="#spaces" data-role="none" data-enhance="false" data-transition="slide" data-direction="reverse">Cancel</a>
+                    <input data-role="none" type="text" name="search" placeholder="Search keywords here..." data-type="search" id="searchBar">
+                    <a href="#spaces" data-role="none" data-enhance="false" data-transition="slide" data-direction="reverse">Back</a>
                 </div>
             </div>
             <div data-role="main" class="ui-content body">
                 <p>Searched results</p>
-                <div></div>
+                <div data-role="listview" data-filter="true" data-input="#searchBar" data-filter-reveal="true" data-inset="true"></div>
+                <p class="msg"></p>
             </div>
         </div>
 
@@ -150,7 +151,10 @@
                 </a>
                 <div>
                     <p>Space Information</p>
-                    <p id="btnDelete">Delete</p>
+                    <div>
+                        <p class="updateBtn">Update</p>
+                        <p class="removeBtn">Remove</p>
+                    </div>
                 </div>
             </div>
             <div data-role="main" class="ui-content body">
@@ -191,10 +195,15 @@
 
         <div data-role="page" id="addSpace">
             <div data-role="header" class="header">
-                <p>Space Information</p>
-                <svg width="40" height="40" class="cancelBtn">
-                    <image xlink:href="img/addSpace/back-icon.svg" src="yourfallback.png"/>
-                </svg>
+                <a href="#spaces" data-role="none" data-enhance="false">
+                    <svg width="27" height="27">
+                        <image xlink:href="img/back-icon.svg"/>
+                    </svg>
+                </a>
+                <div>
+                    <p></p>
+                    <p class="contBtn">Continue</p>
+                </div>
             </div>
             <div data-role="main" class="ui-content body">
                 <p>Enter Spaces Information</p>
@@ -227,20 +236,6 @@
                     </form>
                 </div>
             </div>
-            <div data-role="footer" class="footer" data-position="fixed">
-                <button data-shadow="none" class="clear">
-                    <svg width="24" height="24">
-                        <image xlink:href="img/addSpace/erase-icon.svg"/>
-                    </svg>
-                    Clear
-                </button>
-                <button data-shadow="none" class="contBtn">
-                    <svg width="24" height="24">
-                        <image xlink:href="img/addSpace/cont-icon.svg"/>
-                    </svg>
-                    Continue
-                </button>
-            </div>
         </div>
 
         <div data-role="page" id="selectFeature">
@@ -267,7 +262,7 @@
             <div data-role="header" class="header">
                 <a href="#selectFeature" data-role="none" data-enhance="false">
                     <svg width="27" height="27">
-                        <image xlink:href="img/addFeature/back-icon.svg"/>
+                        <image xlink:href="img/back-icon.svg"/>
                     </svg>
                 </a>
                 <div>
@@ -291,7 +286,7 @@
                         </svg>
                         <div>
                             <small>Address</small>
-                            <p id="address">113 Le Quang Dinh</p>
+                            <p id="address"></p>
                         </div>
                     </div>
                     <div>

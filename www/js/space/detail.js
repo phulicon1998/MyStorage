@@ -1,5 +1,11 @@
 (function($, doc){
     $(doc).on("pageshow", "#detail", prepare);
+    $(doc).on("pageinit", "#detail", ready);
+
+    function ready(){
+        $("#detail .header .removeBtn").on("tap", remove);
+        $("#detail .header .updateBtn").on("tap", update);
+    }
 
     function prepare(){
         if(dbSpace){
@@ -46,6 +52,16 @@
         } else {
             $("#detail .body .notePlot").append($(`<p>${dbSpace.temp.note}</p>`));
         }
+    }
+
+    function remove(){
+        if(confirm("Are you sure to delete this information?")){
+            dbSpace.delete(dbSpace.temp.Id).then(rs => $.mobile.navigate("#spaces"));
+        }
+    }
+
+    function update(){
+        $.mobile.navigate("#addSpace");
     }
 
 }(jQuery, document))

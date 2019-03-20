@@ -58,6 +58,12 @@
 
 #search .header > div > a{
     margin: 0;
+    color: #8cbec5;
+    font-family: Montserrat;
+    font-size: 13px;
+    text-decoration: none;
+    text-shadow: none;
+    font-weight: 500;
 }
 
 /* CONTENT */
@@ -70,6 +76,10 @@
     font-family: Montserrat;
     font-size: 14px;
     color: #757575;
+}
+
+#search .body div {
+    box-shadow: none;
 }
 
 #search .body .eachSpace {
@@ -117,4 +127,16 @@
 
 #search .body .eachSpace span {
     color: #000000;
+}
+
+#search .body .msg{
+    font-size: 12px;
+    text-align: center;
+    margin: auto;
+    line-height: 1.8;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    color: #a9a9a9;
+    font-style: italic;
 }

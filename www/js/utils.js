@@ -36,8 +36,15 @@ class FU {
         })
     }
 
-    lowerFirstLetter = word => word[0].toLowerCase() + word.substring(1);
+    lowerFirstLetter = word => /^[A-Z]/.test(word[0]) ? word[0].toLowerCase() + word.substring(1) : word;
 
     upperFirstLetter = word => word[0].toUpperCase() + word.substring(1);
+
+    lowerKey = obj => {
+        return Object.keys(obj).reduce((acc, next) => {
+            acc[this.lowerFirstLetter(next)] = obj[next];
+            return acc;
+        }, {});
+    }
 
 }

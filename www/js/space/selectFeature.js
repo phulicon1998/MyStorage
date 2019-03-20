@@ -1,27 +1,33 @@
 (function($, doc){
 
-    $(doc).on("pageinit", "#selectFeature", ready);
-    $(doc).on("pageshow", "#selectFeature", prepare);
+    const loc = "#selectFeature";
 
-    function prepare(){
-        if(dbSpace) loadFeature(bindData);
+    $(doc).on("pageinit", loc, ready);
+    $(doc).on("pagebeforeshow", loc, beforeShow);
+
+    function beforeShow(){
+        if(dbSpace) load(bind);
         else $.mobile.navigate("#spaces");
     }
 
     function gatherFeatures(){
-        let features = Array.from($("#selectFeature select"));
+        let features = Array.from($(`${loc} select`));
         let selectedFeat = features.filter(feature => $(feature).val() !== "0" && $(feature).val() !== null).map(feat => $(feat).val());
         if(selectedFeat.length > 0){
             dbSpace.temp.feature = selectedFeat;
-            $.mobile.navigate("#confirm");
+            if(dbSpace.temp.id){
+                console.log(dbSpace.temp);
+            } else {
+                $.mobile.navigate("#confirm");
+            }
         } else {
             alert("Please select feature for the space");
         }
     }
 
-    function loadFeature(next) {
+    function load(next) {
         let dbFeature = new featureDb();
-        $("#selectFeature form").empty();
+        $(`${loc} form`).empty();
         dbFeature.viewAll().then(result => {
             result.forEach(feature => {
                 let state = "";
@@ -41,15 +47,16 @@
                     </div>`
                 );
                 featureRow.data("Id", feature.Id);
-                $("#selectFeature form").append(featureRow).enhanceWithin();
+                $(`${loc} form`).append(featureRow).enhanceWithin();
             })
             if(next) next();
         });
     }
 
-    function bindData(){
+    function bind(){
         if(dbSpace.temp.feature){
-            let features = dbSpace.temp.feature;
+            const {temp} = dbSpace;
+            let features = temp.Id ? temp.feature.map(feat => feat.id) : temp.feature;
             features.forEach(val => {
                 let otherSelects = Array.from($("#selectFeature select")).filter(select => $(select).val() === "0" || $(select).val() === null);
                 $(otherSelects).val(val.toString()).flipswitch("refresh");

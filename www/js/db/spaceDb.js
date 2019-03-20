@@ -25,11 +25,26 @@ class spaceDb extends generalDb {
             let query = "SELECT * FROM spaceFeature SF JOIN feature F ON SF.FeatureId = F.Id WHERE spaceId = ?";
             db.callReadTrans(query, [id]).then(result => {
                 let listFeature = result.map(feature => ({
+                    id: feature.Id,
                     name: feature.FName,
                     desc: feature.FDesc
                 }));
                 this.temp.feature = listFeature;
             });
         });
+    }
+
+    delete(id){
+        let query = "DELETE FROM space WHERE Id = ?";
+        return super.delete(query, id);
+    }
+
+    update(){
+        let query = `UPDATE space
+        SET Address = ?, Type = ?, Dimension = ?, DateTime = ?, RentPrice = ?, Reporter = ?, Note = ?
+        WHERE Id = ?`;
+        let {address, type, dimension, dateTime, rentPrice, reporter, note} = this.temp;
+        let values = [address, type, dimension, dateTime, rentPrice, reporter, note];
+        return db.callTrans(address, values);
     }
 }

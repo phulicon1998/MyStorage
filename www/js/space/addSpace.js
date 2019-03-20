@@ -1,46 +1,57 @@
 (function($, doc){
 
-    $(doc).on("pageinit", "#addSpace", ready);
-    $(doc).on("pageshow", "#addSpace", prepare);
+    const loc = "#addSpace";
+    const hd = loc + " .header";
+    const bd = loc + " .body";
+
+    $(doc).on("pageinit", loc, ready);
+    $(doc).on("pagebeforeshow", loc, beforeShow);
+
+    function beforeShow(){
+        if(!dbSpace) return cancel();
+        $(`${hd} > div > p:nth-of-type(1)`).text((dbSpace.temp.Id ? "Edit" : "Enter") + " Space Information");
+        clear(bindData);
+    }
 
     // PREPARE & READY
     function ready() {
-        $("#addSpace input").on("focusin", focusInput);
-        $("#addSpace input").on("focusout", unfocusInput);
+        $(`${bd} input`)
+            .on("focusin", focusInput)
+            .on("focusout", unfocusInput);
 
-        $("#addSpace select").on("focusin", focusSelect);
-        $("#addSpace select").on("focusout", unfocusSelect);
-        $("#addSpace select").on("change", updateSelectChange);
+        $(`${bd} select`)
+            .on("focusin", focusSelect)
+            .on("focusout", unfocusSelect)
+            .on("change", updateSelectChange);
 
-        $("#addSpace .contBtn").on("tap", save);
-        $("#addSpace .cancelBtn").on("tap", cancelForm);
-
-        $("#addSpace .clear").on("tap", (e) => clearForm());
-    }
-
-    function prepare(){
-        if(dbSpace) return clearForm(bindData);
-        return cancelForm();
+        $(`${hd} .contBtn`).on("tap", save);
+        $(`${hd} > a`).on("tap", cancel);
     }
 
     // HANDLER FUNCTION
     function bindData(){
+        if(dbSpace.temp.Id){
+            dbSpace.temp.feature = dbSpace.temp.feature.map(feat => feat.id);
+        }
         if(Object.keys(dbSpace.temp).length > 0){
-            fu.bind("#addSpace select", dbSpace.temp);
-            fu.bind("#addSpace input", dbSpace.temp);
-            fu.bind("#addSpace textarea", dbSpace.temp);
+            if(dbSpace.temp.Id){
+                dbSpace.temp = fu.lowerKey(dbSpace.temp);
+            }
+            fu.bind(`${bd} select`, dbSpace.temp);
+            fu.bind(`${bd} input`, dbSpace.temp);
+            fu.bind(`${bd} textarea`, dbSpace.temp);
             $("label").addClass("focusInput");
             updateSelectChange();
         }
     }
 
     function save() {
-        let empty = fu.isEmpty("#addSpace input");
+        let empty = fu.isEmpty(`${bd} input`);
         if(!empty){
             dbSpace.checkDuplicateAdddress().then(result => {
-                let textData = fu.extract("#addSpace input");
-                let {type} = fu.extract("#addSpace select");
-                let {note} = fu.extract("#addSpace textarea");
+                let textData = fu.extract(`${bd} input`);
+                let {type} = fu.extract(`${bd} select`);
+                let {note} = fu.extract(`${bd} textarea`);
                 if(type !== "0" && result.length == 0){
                     let {temp} = dbSpace;
                     dbSpace.temp = {...temp, type ,...textData, note};
@@ -54,20 +65,20 @@
         }
     }
 
-    function cancelForm(){
+    function cancel(){
+        clear();
         $.mobile.navigate("#spaces");
-        clearForm();
     }
 
     // RENDER FUNCTION
-    function clearForm(next = false){
+    function clear(next = false){
         $(`label`).removeClass("focusInput");
-        $("#addSpace select[name='type']").empty();
+        $(`${bd} select[name='type']`).empty();
         let typeList = new typeDb().viewAll().then(result => {
-            $("select[name='type']").append($(`<option value="0">< Please select type ></option>`));
+            $(`${bd} select[name='type']`).append($(`<option value="0">< Please select type ></option>`));
             result.forEach(type => {
                 let typeRow = $(`<option value="${type.Id}">${type.TName}</option>`);
-                $("select[name='type']").append(typeRow);
+                $(`${bd} select[name='type']`).append(typeRow);
             });
             updateSelectChange();
             fu.clear("#addSpace input", "#addSpace textarea");

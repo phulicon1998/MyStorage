@@ -6,4 +6,11 @@ class space_featureDb{
             db.callTrans(query, [id, spaceId]);
         }
     }
+
+    update(spaceId, featureIds){
+        let query = "DELETE FROM spaceFeature WHERE SpaceId = ?";
+        db.callTrans(query, [spaceId]).then(() => {
+            this.add(spaceId, featureIds);
+        });
+    }
 }
