@@ -16,7 +16,11 @@
         if(selectedFeat.length > 0){
             dbSpace.temp.feature = selectedFeat;
             if(dbSpace.temp.id){
-                console.log(dbSpace.temp);
+                dbSpace.update().then(() => {
+                    new space_featureDb().update(dbSpace.temp.id, dbSpace.temp.feature).then(() => {
+                        dbSpace.viewOne(dbSpace.temp.id).then(() => $.mobile.navigate("#detail"));
+                    });
+                });
             } else {
                 $.mobile.navigate("#confirm");
             }

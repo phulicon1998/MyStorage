@@ -1,7 +1,6 @@
 (function($, doc){
     $(doc).on("pageinit", "#spaces", ready);
-    $(doc).on("pageshow", "#spaces", load);
-
+    $(doc).on("pagebeforeshow", "#spaces", beforeShow);
 
     function ready(){
         $("#spaces .body > div").on("click", ".eachSpace", access);
@@ -9,11 +8,12 @@
 
     function access(e) {
         let spaceId = $(e.target).closest(".eachSpace").data("id");
-        dbSpace.viewOne(spaceId);
-        $.mobile.navigate("#detail");
+        dbSpace.viewOne(spaceId).then(() => {
+            $.mobile.navigate("#detail");
+        });
     }
 
-    function load() {
+    function beforeShow() {
         $("#spaces .body > div").empty();
         dbSpace = new spaceDb();
         dbSpace.viewAll().then(result => {

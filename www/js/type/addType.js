@@ -1,13 +1,15 @@
-$(document).on("pageinit", "#addType", readyAddType);
+(function($, doc){
+    $(doc).on("pageinit", "#addType", ready);
 
-function readyAddType(){
-    $("#addType #create").on("tap", createType);
-}
+    function ready(){
+        $("#addType #create").on("tap", create);
+    }
 
-function createType(){
-    let inputData = extractFormData("#addType input");
-    let textData = extractFormData("#addType textarea");
-    dbType.temp = {...inputData, ...textData};
-    dbType.add();
-    $.mobile.navigate("#types");
-}
+    function create(){
+        let inputData = fu.extract("#addType input");
+        let textData = fu.extract("#addType textarea");
+        dbType.temp = {...inputData, ...textData};
+        dbType.add();
+        $.mobile.navigate("#types");
+    }
+}(jQuery, document))

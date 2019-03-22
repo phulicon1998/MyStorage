@@ -1,5 +1,5 @@
 (function($, doc){
-    $(doc).on("pageshow", "#detail", prepare);
+    $(doc).on("pagebeforeshow", "#detail", beforeShow);
     $(doc).on("pageinit", "#detail", ready);
 
     function ready(){
@@ -7,7 +7,7 @@
         $("#detail .header .updateBtn").on("tap", update);
     }
 
-    function prepare(){
+    function beforeShow(){
         if(dbSpace){
             bindText();
             bindFeature();

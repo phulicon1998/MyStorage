@@ -1,5 +1,5 @@
 (function($, doc){
-    $(doc).on("pageshow", "#features", prepare);
+    $(doc).on("pagebeforeshow", "#features", beforeShow);
     $(doc).on("pageinit", "#features", ready);
 
     function ready(){
@@ -8,7 +8,7 @@
         $("#features .body .addBtn").on("tap", navigateAddFeature);
     }
 
-    function prepare(){
+    function beforeShow(){
         dbFeature = new featureDb();
         $("#features .body > .default").empty();
         $("#features .body > .custom").empty();
@@ -84,7 +84,7 @@
         if(each && confirm("Do you want to remove this data?")){
             let id = $(e.target).parents(".each").data("id");
             dbFeature.delete(id);
-            prepare();
+            beforeShow();
         }
     }
 

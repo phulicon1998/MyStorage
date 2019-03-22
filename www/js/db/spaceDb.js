@@ -19,17 +19,20 @@ class spaceDb extends generalDb {
     }
 
     viewOne(id){
-        let query = "SELECT S.*, T.TName FROM space S JOIN type T ON S.Type = T.Id WHERE S.Id = ?";
-        db.callReadTrans(query, [id]).then(result => {
-            this.temp = result[0];
-            let query = "SELECT * FROM spaceFeature SF JOIN feature F ON SF.FeatureId = F.Id WHERE spaceId = ?";
+        return new Promise((resolve, reject) => {
+            let query = "SELECT S.*, T.TName FROM space S JOIN type T ON S.Type = T.Id WHERE S.Id = ?";
             db.callReadTrans(query, [id]).then(result => {
-                let listFeature = result.map(feature => ({
-                    id: feature.Id,
-                    name: feature.FName,
-                    desc: feature.FDesc
-                }));
-                this.temp.feature = listFeature;
+                this.temp = result[0];
+                let query = "SELECT * FROM spaceFeature SF JOIN feature F ON SF.FeatureId = F.Id WHERE spaceId = ?";
+                db.callReadTrans(query, [id]).then(result => {
+                    let listFeature = result.map(feature => ({
+                        id: feature.Id,
+                        name: feature.FName,
+                        desc: feature.FDesc
+                    }));
+                    this.temp.feature = listFeature;
+                    resolve();
+                });
             });
         });
     }
@@ -40,11 +43,9 @@ class spaceDb extends generalDb {
     }
 
     update(){
-        let query = `UPDATE space
-        SET Address = ?, Type = ?, Dimension = ?, DateTime = ?, RentPrice = ?, Reporter = ?, Note = ?
-        WHERE Id = ?`;
-        let {address, type, dimension, dateTime, rentPrice, reporter, note} = this.temp;
-        let values = [address, type, dimension, dateTime, rentPrice, reporter, note];
-        return db.callTrans(address, values);
+        let query = `UPDATE space SET Address = ?, Type = ?, Dimension = ?, DateTime = ?, RentPrice = ?, Reporter = ?, Note = ? WHERE Id = ?`;
+        let {address, type, dimension, dateTime, rentPrice, reporter, note, id} = this.temp;
+        let values = [address, Number(type), dimension, dateTime, rentPrice, reporter, note, id];
+        return db.callTrans(query, values);
     }
 }
