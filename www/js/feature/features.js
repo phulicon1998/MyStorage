@@ -83,8 +83,7 @@
         let each = $(e.target).parents(".each").hasClass("eachTap");
         if(each && confirm("Do you want to remove this data?")){
             let id = $(e.target).parents(".each").data("id");
-            dbFeature.delete(id);
-            beforeShow();
+            dbFeature.delete(id).then(beforeShow);
         }
     }
 

@@ -14,8 +14,13 @@ class spaceDb extends generalDb {
     }
 
     checkDuplicateAdddress(address){
-        let query = `SELECT * FROM space WHERE Address = ?`;
-        return db.callReadTrans(query, [address]);
+        if(dbSpace.temp.id){
+            let query = `SELECT * FROM space WHERE Address = ? AND Id != ?`;
+            return db.callReadTrans(query, [address, dbSpace.temp.id]);
+        } else {
+            let query = `SELECT * FROM space WHERE Address = ?`;
+            return db.callReadTrans(query, [address]);
+        }
     }
 
     viewOne(id){

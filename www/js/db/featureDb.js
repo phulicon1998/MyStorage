@@ -19,7 +19,10 @@ class featureDb extends generalDb {
     }
 
     delete(id){
-        let query = "DELETE FROM feature WHERE Id = ?";
-        return super.delete(query, id);
+        let query = "DELETE FROM spaceFeature WHERE FeatureId = ?";
+        return db.callTrans(query, [id]).then(() => {
+            let query = "DELETE FROM feature WHERE Id = ?";
+            return super.delete(query, id);
+        })
     }
 }

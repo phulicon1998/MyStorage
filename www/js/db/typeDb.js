@@ -15,7 +15,14 @@ class typeDb extends generalDb {
     }
 
     delete(id){
-        let query = "DELETE FROM type WHERE Id = ?";
-        return super.delete(query, id);
+        let query = "SELECT count(*) FROM space WHERE Type = ?";
+        return db.callReadTrans(query, [id]).then(result => {
+            if(result[0]["count(*)"] === 0){
+                let query = "DELETE FROM type WHERE Id = ?";
+                return super.delete(query, id);
+            } else {
+                alert("The type is in used");
+            }
+        });
     }
 }

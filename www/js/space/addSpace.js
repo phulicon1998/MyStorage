@@ -47,17 +47,17 @@
 
     function save() {
         let empty = fu.isEmpty(`${bd} input`);
-        if(!empty){
-            dbSpace.checkDuplicateAdddress().then(result => {
-                let textData = fu.extract(`${bd} input`);
-                let {type} = fu.extract(`${bd} select`);
-                let {note} = fu.extract(`${bd} textarea`);
-                if(type !== "0" && result.length == 0){
+        let {type} = fu.extract(`${bd} select`);
+        if(!empty && type !== "0"){
+            let text = fu.extract(`${bd} input`);
+            let {note} = fu.extract(`${bd} textarea`);
+            dbSpace.checkDuplicateAdddress(text.address).then(result => {
+                if(result.length === 0){
                     let {temp} = dbSpace;
-                    dbSpace.temp = {...temp, type ,...textData, note};
+                    dbSpace.temp = {...temp, type ,...text, note};
                     $.mobile.navigate("#selectFeature");
                 } else {
-                    alert("Please enter all required information");
+                    alert("The address is available. Please try different address");
                 }
             })
         } else {
