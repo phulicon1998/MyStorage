@@ -1,0 +1,123 @@
+#lock .body {
+    position: relative;
+    height: 100vh;
+    background: #FFFFFF;
+    padding: 0 !important;
+}
+
+#lock .body > img {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+#lock .body > div {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#lock .body > div > img {
+    padding: 20px;
+    background-color: #61d6f3;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    transition-duration: .2s;
+}
+
+#lock .body > div > img.wrong {
+    background-color: #ef9090;
+    animation-duration: .2s;
+    animation-name: shake;
+}
+
+#lock .body > div > p {
+    font-family: Montserrat;
+    color: gray;
+    font-weight: 500;
+    margin-top: 30px;
+}
+
+#lock .body > div ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0px;
+    width: 100vw;
+}
+
+#lock .body > div > ul {
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#lock .body > div > ul > li {
+    margin: 0px 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #bebebe;
+}
+
+#lock .body > div > ul > li.fill{
+    border-color: #b6b6b6;
+    background-color: #b6b6b6;
+}
+
+#lock .body .listBtn {
+    margin-bottom: 20px;
+}
+
+#lock .body .listBtn ul{
+    justify-content: space-evenly;
+}
+
+#lock .body .listBtn ul:last-of-type{
+    justify-content: center;
+}
+
+#lock .body .listBtn li {
+    width: 10px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #e5e5e5;
+    color: #00BCD4;
+    padding: 15px 20px;
+    font-family: Montserrat;
+    transition-duration: .5s;
+    text-align: center;
+}
+
+#lock .body .listBtn li.press {
+    color: white;
+    background-color: #00BCD4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    border-color: #00BCD4;
+    font-weight: 500;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(5px);
+    }
+    20% {
+        transform: translateX(0px);
+    }
+    40% {
+        transform: translateX(-5px);
+    }
+    60% {
+        transform: translateX(0px);
+    }
+    80% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}

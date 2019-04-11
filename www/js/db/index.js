@@ -4,6 +4,7 @@ class Database {
         this.connect();
         this.loadType();
         this.loadFeature();
+        this.loadProtect();
     }
 
     connect(){
@@ -16,6 +17,7 @@ class Database {
         this.tableFeature();
         this.tableSpace();
         this.tableSpaceFeature();
+        this.tableProtect();
     }
 
     tableType(){
@@ -54,6 +56,11 @@ class Database {
         this.callTrans(query);
     }
 
+    tableProtect(){
+        let query = "CREATE TABLE IF NOT EXISTS protect (Id integer primary key, Code text, Activate integer)";
+        this.callTrans(query);
+    }
+
     loadType(){
         let query = "SELECT count(*) FROM type";
         this.callReadTrans(query).then(result => {
@@ -75,6 +82,17 @@ class Database {
                 this.callTrans(query, ["Share space", "Sharing space with other products", 1]);
                 this.callTrans(query, ["Private space", "Space only for one type of product", 1]);
                 this.callTrans(query, ["CCTV", "The storage space is surveilled", 1]);
+            }
+        })
+    }
+
+    loadProtect(){
+        let query = "SELECT count(*) FROM protect";
+        this.callReadTrans(query).then(result => {
+            let count = (result[0])["count(*)"];
+            if(count === 0){
+                let query = "INSERT INTO protect(Code, Activate) VALUES (?, ?)";
+                this.callTrans(query, ["1234", 0]);
             }
         })
     }

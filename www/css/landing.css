@@ -76,7 +76,7 @@
     text-decoration: none;
 }
 
-#landing .body .content > a > .access{
+#landing .body .content > .access{
     width: 183px;
     height: 40px;
     border: 1px solid #7FD7E3 !important;

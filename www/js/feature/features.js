@@ -81,7 +81,7 @@
     function remove(e){
         e.stopPropagation();
         let each = $(e.target).parents(".each").hasClass("eachTap");
-        if(each && confirm("Do you want to remove this data?")){
+        if(each && confirm("Do you want to remove this feature?")){
             let id = $(e.target).parents(".each").data("id");
             dbFeature.delete(id).then(beforeShow);
         }

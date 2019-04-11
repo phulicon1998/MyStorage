@@ -25,6 +25,10 @@
         <!-- MENU CSS -->
         <link rel="stylesheet" href="css/menu.css">
 
+        <!-- LOCK CSS -->
+        <link rel="stylesheet" href="css/protect/lock.css">
+        <link rel="stylesheet" href="css/protect/setting.css">
+
         <!-- TYPE CSS -->
         <link rel="stylesheet" href="css/type/addType.css">
         <link rel="stylesheet" href="css/type/types.css">
@@ -77,6 +81,14 @@
                             Manage features
                         </a>
                     </li>
+                    <li class="navigate">
+                        <a href="#setting">
+                            <svg width="27" height="27">
+                                <image xlink:href="img/menu/setting-icon.svg"/>
+                            </svg>
+                            Setting
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -92,7 +104,7 @@
                         <img src="img/landing/home-icon.svg">
                         <p>MyStorage</p>
                         <small>Version 1.0.0</small>
-                        <a href="#spaces"><button class="access">GET ACCESS</button></a>
+                        <button class="access">GET ACCESS</button>
                         <button class="about">About Us</button>
                     </div>
                 </div>
@@ -100,6 +112,81 @@
                 <img src="img/landing/botWaveA.svg" alt="">
                 <img src="img/landing/botWaveB.svg" alt="">
 
+            </div>
+        </div>
+
+        <div data-role="page" id="lock">
+            <div data-role="main" class="ui-content body">
+
+                <div>
+                    <img src="img/lock-icon.svg" alt="">
+                    <p>Enter protection code</p>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <div class="listBtn">
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                        <ul>
+                            <li>4</li>
+                            <li>5</li>
+                            <li>6</li>
+                        </ul>
+                        <ul>
+                            <li>7</li>
+                            <li>8</li>
+                            <li>9</li>
+                        </ul>
+                        <ul><li>0</li></ul>
+                    </div>
+                </div>
+
+                <img src="img/landing/botWaveB.svg" alt="">
+
+            </div>
+        </div>
+
+        <div data-role="page" id="setting">
+            <div data-role="header" class="header">
+                <a href="#menu" data-role="none" data-enhance="false">
+                    <svg width="35" height="35" id="openMenu">
+                        <image xlink:href="img/list-icon.svg"/>
+                    </svg>
+                </a>
+                <p>MyStorage Setting</p>
+            </div>
+            <div data-role="main" class="ui-content body">
+                <p>Protection Settings</p>
+                <div>
+                    <form>
+                        <div>
+                            <div class="feature">
+                                <label for="">Turn on protection</label>
+                                <small>Protect this application with code</small>
+                            </div>
+                            <select id="protectSw" data-role="flipswitch" data-mini="true">
+                                <option value="0"></option>
+                                <option value="1"></option>
+                            </select>
+                        </div>
+                        <div>
+                            <div class="codeLabel">
+                                <label>Protection code</label>
+                                <small>Protect this application with code</small>
+                            </div>
+                            <div>
+                                <input type="number" value="1234" data-role="none" maxlength="4" disabled>
+                                <button data-role="none" class="editBtn" disabled>EDIT</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
@@ -435,12 +522,18 @@
         <script src="js/db/space-feature.js"></script>
         <script src="js/db/typeDb.js"></script>
         <script src="js/db/featureDb.js"></script>
+        <script src="js/db/protectDb.js"></script>
 
         <!-- GLOBAL VARIABLE -->
         <script src="js/global.js"></script>
 
         <!-- MENU VARIABLE -->
+        <script src="js/landing.js"></script>
         <script src="js/menu.js"></script>
+
+        <!-- LOCK  -->
+        <script src="js/protect/setting.js"></script>
+        <script src="js/protect/lock.js"></script>
 
         <!-- SPACES -->
         <script src="js/space/spaces.js"></script>

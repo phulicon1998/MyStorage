@@ -1,0 +1,169 @@
+/* HEADER */
+
+#setting .header {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    background-color: white !important;
+    border: none !important;
+    border-bottom: 1px solid #e9e9e9 !important;
+}
+
+#setting .header > a {
+    background-color: transparent !important;
+    border: none !important;
+    width: unset !important;
+    position: unset !important;
+    top: 0px !important;
+}
+
+#setting .header > a > svg {
+    padding: 13px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    border-right: 1px solid #e4e4e4;
+}
+
+#setting .header > p {
+    margin: 0;
+    margin-left: 10px;
+    color: #696969;
+    font-family: Montserrat;
+    font-weight: 500;
+    text-shadow: none !important;
+}
+
+/* CONTENT */
+
+#setting .body {
+    border: none !important;
+    padding-top: 0px !important;
+}
+
+#setting .body > p {
+    font-family: Montserrat;
+    font-size: 14px;
+    color: #757575;
+    margin: 0px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+#setting .body > div {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 10px;
+}
+
+#setting .body form > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+#setting .body form > div:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+}
+
+#setting .body .feature {
+    display: flex;
+    flex-direction: column;
+    font-family: Montserrat;
+    flex-basis: 70%;
+}
+
+#setting .body .feature > label {
+    font-size: 14px;
+}
+
+#setting .body .feature > small {
+    font-size: 11px;
+    color: gray !important;
+}
+
+#setting .body .ui-flipswitch {
+    width: 3.875em !important;
+}
+
+#setting .body .ui-shadow-inset {
+    box-shadow: none !important;
+}
+
+#setting .ui-page-theme-a .ui-flipswitch-active {
+    background-color: #4abccc !important;
+    border-color: #4abccc !important;
+}
+
+#setting .body .ui-flipswitch.ui-flipswitch-active {
+    padding-left: 2em !important;
+    width: 1.875em !important;
+}
+
+#setting .body .ui-flipswitch .ui-btn.ui-flipswitch-on {
+    border-radius: 20px;
+}
+
+#setting .body .ui-flipswitch.ui-corner-all {
+    border-radius: 20px !important;
+}
+
+#setting .body form .codeLabel > label {
+    font-size: 14px;
+}
+
+#setting .body .codeLabel > small {
+    font-size: 11px;
+    color: gray;
+}
+
+#setting .body form > div:nth-of-type(2) > div{
+    display: flex;
+    align-items: center;
+}
+
+#setting .body .codeLabel{
+    display: flex;
+    flex-direction: column;
+    font-family: Montserrat;
+    align-items: flex-start !important;
+}
+
+#setting .body form > div:nth-of-type(2) > div > input {
+    margin: 0;
+    font-size: 13px;
+    font-family: Montserrat;
+    font-weight: 500;
+    color: #607d8b;
+    width: 35px;
+    padding: 5px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid #d7d7d7;
+}
+
+#setting .body form > div:nth-of-type(2) > div > input:disabled{
+    background-color: transparent;
+    border-color: transparent;
+    color: #949494;
+}
+
+#setting .body form > div:nth-of-type(2) > div > button {
+    margin-left: 5px;
+    border: none;
+    background-color: #a8a8a8;
+    color: white;
+    padding: 5px 7px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+#setting .body form > div:nth-of-type(2) > div > button.save {
+    background-color: #c28c8c;
+}
