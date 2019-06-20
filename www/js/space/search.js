@@ -8,6 +8,14 @@
     function ready(){
         showMsg();
         $("#search .body > div").on("filterablefilter", showMsg);
+        $("#search .body > div").on("click", ".eachSpace", access);
+    }
+
+    function access(e) {
+        let spaceId = $(e.target).closest(".eachSpace").data("id");
+        dbSpace.viewOne(spaceId).then(() => {
+            $.mobile.navigate("#detail");
+        });
     }
 
     function prepare(){

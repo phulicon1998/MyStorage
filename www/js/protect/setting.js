@@ -33,8 +33,9 @@
         } else {
             $(this).removeClass("save");
             let modCode = $(`${loc} input`).val();
-            if(modCode.length !== 4) {
-                return alert("The code is a four-digit number. Please try again");
+            let isDuplicate = modCode.split("").filter((val, i) => modCode.split("").indexOf(val) !== i).length;
+            if(modCode.length !== 4 || isDuplicate > 0) {
+                return alert("The code is a four-different-digit number. Please try again");
             }
             new protectDb().updateCode(modCode).then(rs => {
                 $(`${loc} input`).prop("disabled", !status);

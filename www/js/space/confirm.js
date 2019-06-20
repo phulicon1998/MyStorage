@@ -27,7 +27,7 @@
 
     // RENDER FUNCTION
     function backToEdit(){
-        $.mobile.navigate("#addSp");
+        $.mobile.navigate("#addSpace");
     }
 
     function bindData(){

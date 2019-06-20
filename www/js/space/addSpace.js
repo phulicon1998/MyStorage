@@ -40,7 +40,7 @@
             fu.bind(`${bd} select`, dbSpace.temp);
             fu.bind(`${bd} input`, dbSpace.temp);
             fu.bind(`${bd} textarea`, dbSpace.temp);
-            $("label").addClass("focusInput");
+            $("#addSpace label").addClass("focusInput");
             updateSelectChange();
         }
     }
@@ -72,7 +72,7 @@
 
     // RENDER FUNCTION
     function clear(next = false){
-        $(`label`).removeClass("focusInput");
+        $(`#addSpace label`).removeClass("focusInput");
         $(`${bd} select[name='type']`).empty();
         let typeList = new typeDb().viewAll().then(result => {
             $(`${bd} select[name='type']`).append($(`<option value="0">< Please select type ></option>`));
